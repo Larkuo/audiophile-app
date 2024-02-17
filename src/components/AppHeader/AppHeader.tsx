@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { styles } from './AppHeader.styles';
@@ -9,16 +9,20 @@ import CartIcon from '../../assets/shared/desktop/icon-cart.svg';
 import BurgerIcon from '../../assets/shared/tablet/icon-hamburger.svg';
 
 import { SCREEN_LIMITS, SCREEN_WIDTH } from '../../theme/Theme';
+import SideNav from '../SideNav/SideNav';
 
 
 export function AppHeader() {
   const showBurger = SCREEN_WIDTH <= SCREEN_LIMITS.tablet;
+  const [showSideNav, setShowSideNav] = useState(false);
   
   return showBurger
   ?(
+    <>
+    {showSideNav && <SideNav closeSidenav={() => setShowSideNav(false)}/>}
     <div style={styles.appHeader} className='app-header'>
       <div style={styles.menuLogoGroup}>
-        <img src={BurgerIcon} style={styles.menuIcon}/>
+        <img src={BurgerIcon} style={styles.menuIcon} onClick={() => setShowSideNav(true)}/>
 
         <Link to={'/'} className="logo-link" style={styles.logoLink}>
           <img src={AppLogo} style={styles.appLogo}/>
@@ -29,6 +33,7 @@ export function AppHeader() {
           <img src={CartIcon} style={styles.cartIcon}/>
         </Link>
     </div>
+    </>
   ):(
     <div style={styles.appHeader} className='app-header'>
       <Link to={'/'} className="logo-link" style={styles.logoLink}>

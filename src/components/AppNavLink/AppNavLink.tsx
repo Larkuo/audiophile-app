@@ -6,12 +6,16 @@ import { useHover } from '../../hooks/useHover';
 interface AppNavLinkProps{
     path: string;
     name: string;
+    onClick?: () => void;
+    stylesOverride?: object;
     
 }
 
 function AppNavLink({
     path,
     name,
+    onClick,
+    stylesOverride,
 }: AppNavLinkProps) {
   const {
       hover, 
@@ -29,11 +33,17 @@ function AppNavLink({
     },
   };
 
+  const linkStyle = {
+    ...styles.navLink, 
+    ...stylesOverride
+  }
+
   return (
     <Link 
         to={path}
         className='nav-link' 
-        style={styles.navLink}
+        style={linkStyle}
+        onClick={onClick}
         onMouseEnter={setHoverTrue}
         onMouseLeave={setHoverFalse}
     >{name}</Link>
