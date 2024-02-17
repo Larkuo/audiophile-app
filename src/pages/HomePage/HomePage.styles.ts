@@ -36,11 +36,6 @@ export const styles = {
                 ? '100%'
                 : SCREEN_WIDTH <= SCREEN_LIMITS.tablet
                 ? '70%' : '35%',
-        // height: SCREEN_WIDTH > SCREEN_LIMITS.tablet
-        //             ? '90%'
-        //             : SCREEN_WIDTH > SCREEN_LIMITS.mobile
-        //             ? '70%' 
-        //             : '60%',
         height: '90%',
         backgroundColor: colors.transparent,
         boxSizing: 'border-box',

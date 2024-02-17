@@ -21,6 +21,7 @@ export function HomePage() {
         </div>
       </div>
       <CategoriesCardGroup />
+      <div></div>
     </div>
   )
 }
