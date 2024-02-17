@@ -7,7 +7,7 @@ SCREEN_WIDTH <= SCREEN_LIMITS.mobile
 export const styles = {
     appHeader: {
         width: '100%',
-        height: SCREEN_WIDTH > SCREEN_LIMITS.tablet? '10%':'8.5%',
+        height: '10vh',
         position: 'relative',
         color: 'white',
         boxSizing: 'border-box',

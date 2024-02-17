@@ -5,8 +5,16 @@ import {
   AppHeader, 
   CategoriesCardGroup 
 } from '../../components';
+import { useNavigate } from 'react-router-dom';
 
 export function HomePage() {
+  const navigate = useNavigate();
+
+  function gotoProductDetailsPage(category: string, product: string){
+    // navigate(`/${category}/${product}`);
+    console.log({category, product});
+    navigate(`/${category}`);
+  }
   return (
     <div className='home-page' style={styles.homePage}>
       <div className='header-hero-section' style={styles.headerHeroSection}>
@@ -17,7 +25,11 @@ export function HomePage() {
           <span className='hero-description' style={styles.heroDescription}>
             Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.
           </span>
-          <AppButton label='see product' mode='primary' stylesOverride={styles.seeProductButton}/>
+          <AppButton 
+            label='see product' 
+            mode='primary' stylesOverride={styles.seeProductButton}
+            onClick={() => gotoProductDetailsPage('headphones', 'xx99 mark ii headphones')}
+          />
         </div>
       </div>
       <CategoriesCardGroup />

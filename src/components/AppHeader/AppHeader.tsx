@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { styles } from './AppHeader.styles';
-import AppNavLink from './AppNavLink';
+import AppNavLink from '../AppNavLink/AppNavLink';
 
 import AppLogo from '../../assets/shared/desktop/logo.svg';
 import CartIcon from '../../assets/shared/desktop/icon-cart.svg';

@@ -2,8 +2,14 @@ import React from 'react';
 import { styles } from './CategoriesCardGroup.styles';
 import { CATEGORIES_CARD_DATA, CategoriesCardProps } from './CategoriesData';
 import { AppButton } from '..';
+import { useNavigate } from 'react-router-dom';
 
 export function CategoriesCardGroup() {
+    const navigate = useNavigate();
+
+    function gotoCategoryPage(category: string){
+        navigate(`/${category}`);
+    }
     
     return (
         <div className='categories-card-group' style={styles.categoriesCardGroup}>
@@ -15,15 +21,20 @@ export function CategoriesCardGroup() {
                 >
                     <img 
                         src={card.image} 
+                        className='category-card'
                         alt={`${card.label} category image`}
                         style={card.label === 'earphones'
                                 ? styles.categoryImage 
                                 : {...styles.categoryImage, width: '46.5%'}
                             }  
                     />
-                    <div style={styles.categoryUnderCard}>
+                    <div style={styles.categoryUnderCard} className='category-under-card'>
                         <span className='category-card-name' style={styles.categoryLabel}>{card.label}</span>
-                        <AppButton label='shop' mode='arrow' />
+                        <AppButton 
+                            label='shop' 
+                            mode='arrow' 
+                            onClick={() => gotoCategoryPage(card.label)}
+                        />
                     </div>
                 </div>
             )}
