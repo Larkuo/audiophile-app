@@ -25,7 +25,7 @@ export const styles = {
         display: 'flex',
         flexDirection: 'column',
         color: colors.white,
-        backgroundColor: colors.darkGray,
+        backgroundColor: colors.black,
         boxSizing: 'border-box',
         paddingRight: '5%',
         paddingLeft: '5%',

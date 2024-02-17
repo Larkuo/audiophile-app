@@ -1,5 +1,10 @@
 import { ReactNode } from "react";
-import { EarphonesPage, HeadphonesPage, HomePage, SpeakersPage, TestPage } from "../pages";
+import { 
+    EarphonesPage, 
+    HeadphonesPage, 
+    HomePage, 
+    SpeakersPage 
+} from "../pages";
 
 export interface AppRoutesInterface{
     key: number;
@@ -32,10 +37,5 @@ export const APP_ROUTES: AppRoutesInterface[] = [
         key: 4,
         path: "/earphones",
         element: <EarphonesPage />
-    },
-    {
-        key: 10,
-        path: "/test",
-        element: <TestPage />
     },
 ];
