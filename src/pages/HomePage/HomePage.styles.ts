@@ -3,8 +3,7 @@ import HeroBackground_Tablet from '../../assets/home/tablet/image-header.jpg';
 import HeroBackground_Mobile from '../../assets/home/mobile/image-header.jpg';
 import { 
     SCREEN_LIMITS, 
-    colors, 
-    textStyles
+    colors 
 } from '../../theme/Theme';
 import PatternCircles from '../../assets/home/desktop/pattern-circles.svg';
 import { ScreenDimensionsProps } from '../../hooks/useScreenDimensions';

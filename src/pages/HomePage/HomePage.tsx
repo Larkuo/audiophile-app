@@ -2,11 +2,9 @@ import React from 'react';
 import { styles } from './HomePage.styles';
 import { 
   AppButton, 
-  AppHeader, 
   CategoriesCardGroup, 
   HomePageHero
 } from '../../components';
-import { useNavigate } from 'react-router-dom';
 import { SCREEN_LIMITS, SCREEN_WIDTH, textStyles } from '../../theme/Theme';
 
 import zx9_desktop from '../../assets/home/desktop/image-speaker-zx9.png';

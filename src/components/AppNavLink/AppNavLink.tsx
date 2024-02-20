@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { colors } from '../../theme/Theme';
 import { useHover } from '../../hooks/useHover';
 
@@ -17,6 +17,11 @@ function AppNavLink({
     onClick,
     stylesOverride,
 }: AppNavLinkProps) {
+  const location = useLocation();
+  const { pathname } = location;
+
+  const IS_ACTIVE = path !== '/' && pathname === path;
+
   const {
       hover, 
       setHoverTrue, 
@@ -26,7 +31,7 @@ function AppNavLink({
   const styles = {
     navLink: {
         textDecoration: 'none',
-        color: hover? colors.primary : colors.white,
+        color: IS_ACTIVE || hover? colors.primary : colors.white,
         fontSize: '15px',
         fontWeight: '900',
         textTransform: 'uppercase',

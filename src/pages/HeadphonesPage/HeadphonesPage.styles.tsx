@@ -1,17 +1,19 @@
+import { ScreenDimensionsProps } from '../../hooks/useScreenDimensions';
 import { 
     SCREEN_LIMITS, 
-    SCREEN_WIDTH, 
     colors, 
     textStyles 
 } from '../../theme/Theme';
 
-const titleStyles = SCREEN_WIDTH <= SCREEN_LIMITS.mobile
+const titleStyles = (screenDimensions: ScreenDimensionsProps) => {return( 
+    screenDimensions.width <= SCREEN_LIMITS.mobile
                         ? textStyles.h3
-                        : SCREEN_WIDTH <= SCREEN_LIMITS.tablet
+                        : screenDimensions.width <= SCREEN_LIMITS.tablet
                         ? textStyles.h2 
-                        : textStyles.h1;
+                        : textStyles.h1
+)};
 
-export const styles = {
+export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
     headphonesPage: {
         width: '100%',
         boxSizing: 'border-box',
@@ -21,15 +23,15 @@ export const styles = {
         display: 'flex',
         flexDirection: 'column',
         backgroundColor: colors.black,
-        paddingLeft: SCREEN_WIDTH > SCREEN_LIMITS.tablet? '10%':'5%',
-        paddingRight: SCREEN_WIDTH > SCREEN_LIMITS.tablet? '10%':'5%',
+        paddingLeft: screenDimensions.width > SCREEN_LIMITS.tablet? '10%':'5%',
+        paddingRight: screenDimensions.width > SCREEN_LIMITS.tablet? '10%':'5%',
         paddingBottom: '2.5%',
         color: colors.white,
         boxSizing: 'border-box',
     },
     pageTitle: {
-        ...titleStyles,
+        ...titleStyles(screenDimensions),
         textAlign: 'center',
         paddingTop: '2.5%',
     }
-};
+}};

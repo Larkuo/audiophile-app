@@ -1,14 +1,17 @@
 import React from 'react';
 import { AppHeader } from '../../components';
 import { styles } from './SpeakersPage.styles';
+import { useScreenDimensions } from '../../hooks/useScreenDimensions';
 
 export function SpeakersPage() {
-  return (
-    <div className='headphones-page' style={styles.speakersPage}>
-      <div className='page-header' style={styles.pageHeader}>
-        <AppHeader />
-        <h1 className='page-title' style={styles.pageTitle}>Speakers</h1>
+    const {screenDimensions} = useScreenDimensions();
+
+    return (
+      <div className='headphones-page' style={styles(screenDimensions).speakersPage}>
+        <div className='page-header' style={styles(screenDimensions).pageHeader}>
+          <AppHeader />
+          <h1 className='page-title' style={styles(screenDimensions).pageTitle}>Speakers</h1>
+        </div>
       </div>
-    </div>
-  );
+    );
 }
