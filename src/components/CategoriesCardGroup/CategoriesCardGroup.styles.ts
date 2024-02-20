@@ -11,7 +11,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         paddingRight: screenDimensions.width <= SCREEN_LIMITS.tablet? '5%' : '10%',
         paddingTop: screenDimensions.width <= SCREEN_LIMITS.mobile? '30px'
                     : screenDimensions.width <= SCREEN_LIMITS.tablet? '80px' 
-                    : '55px',
+                    : '50px',
         paddingBottom: '30px',
         marginTop: '5%',
         boxSizing: 'border-box',

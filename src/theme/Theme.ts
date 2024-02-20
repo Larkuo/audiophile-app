@@ -15,7 +15,7 @@ export const colors = {
 export const SCREEN_LIMITS = {
     desktop: 1440,
     tablet: 768,
-    mobile: 375,
+    mobile: 425,
 }
 export const SCREEN_WIDTH = window.screen.width;
 

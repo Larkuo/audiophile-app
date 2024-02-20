@@ -3,7 +3,8 @@ import { styles } from './HomePage.styles';
 import { 
   AppButton, 
   AppHeader, 
-  CategoriesCardGroup 
+  CategoriesCardGroup, 
+  HomePageHero
 } from '../../components';
 import { useNavigate } from 'react-router-dom';
 import { SCREEN_LIMITS, SCREEN_WIDTH, textStyles } from '../../theme/Theme';
@@ -15,14 +16,7 @@ import { useScreenDimensions } from '../../hooks/useScreenDimensions';
 
 
 export function HomePage() {
-  const navigate = useNavigate();
   const {screenDimensions} = useScreenDimensions();
-
-  function gotoProductDetailsPage(category: string, product: string){
-    // navigate(`/${category}/${product}`);
-    console.log({category, product});
-    navigate(`/${category}`);
-  }
 
   const PageAssets = {
     zx9Image: screenDimensions.width <= SCREEN_LIMITS.mobile
@@ -33,22 +27,7 @@ export function HomePage() {
   }
   return (
     <div className='home-page' style={styles(screenDimensions).homePage}>
-      <div className='header-hero-section' style={styles(screenDimensions).headerHeroSection}>
-        <AppHeader />
-        <div className='hero-section' style={styles(screenDimensions).heroSection}>
-          <h2 className='new-product' style={styles(screenDimensions).newProduct}>NEW PRODUCT</h2>
-          <h1 className='product-name' style={styles(screenDimensions).productName}>XX99 Mark II Headphones</h1>
-          <span className='hero-description' style={styles(screenDimensions).heroDescription}>
-            Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.
-          </span>
-          <AppButton 
-            label='see product' 
-            mode='primary' 
-            stylesOverride={styles(screenDimensions).heroSeeProductButton}
-            onClick={() => gotoProductDetailsPage('headphones', 'xx99 mark ii headphones')}
-          />
-        </div>
-      </div>
+      <HomePageHero />
       <CategoriesCardGroup />
       <div className='zx9-speaker-section' style={styles(screenDimensions).zx9SpeakerSection}>
         <img 
