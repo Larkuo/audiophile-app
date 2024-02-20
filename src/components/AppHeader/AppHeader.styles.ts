@@ -1,10 +1,7 @@
-import { SCREEN_LIMITS, SCREEN_WIDTH, colors } from '../../theme/Theme';
+import { ScreenDimensionsProps } from '../../hooks/useScreenDimensions';
+import { SCREEN_LIMITS, colors } from '../../theme/Theme';
 
-SCREEN_WIDTH <= SCREEN_LIMITS.mobile
-        ? {width: '80%'}
-        : {width: '45%'}
-
-export const styles = {
+export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
     appHeader: {
         width: '100%',
         height: '10vh',
@@ -18,7 +15,7 @@ export const styles = {
         borderBottom: `1px solid ${colors.borderGray}`,
     },
     menuLogoGroup: {
-        width: SCREEN_WIDTH <= SCREEN_LIMITS.mobile? '70%':'45%',
+        width: screenDimensions.width <= SCREEN_LIMITS.mobile? '70%':'45%',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -52,4 +49,4 @@ export const styles = {
         height: '100%',
         width: 'auto',
     },
-};
+}};

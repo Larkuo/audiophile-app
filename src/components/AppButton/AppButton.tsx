@@ -4,7 +4,7 @@ import { styles } from './AppButton.styles';
 import { colors } from '../../theme/Theme';
 import rightArrowIcon from '../../assets/shared/desktop/icon-arrow-right.svg';
 
-type AppButtonModeType = 'primary' | 'secondary' | 'arrow';
+type AppButtonModeType = 'primary' | 'secondary' | 'arrow' | 'black-fill';
 
 interface AppButtonProps {
     label: string;
@@ -33,6 +33,7 @@ export function AppButton({
         ...hoverStylesOverride,
         backgroundColor: mode === 'primary' ? colors.hoverPrimary 
                             : mode === 'secondary'? colors.black
+                            : mode === 'black-fill'? colors.hoverBlack
                             : colors.transparent,
         border: mode === 'secondary'
                             ? `1px solid ${colors.black}` : 'none',
@@ -42,8 +43,9 @@ export function AppButton({
         ...stylesOverride,
         backgroundColor: mode === 'primary' ? colors.primary 
                             : mode === 'secondary'? colors.white
+                            : mode === 'black-fill'? colors.black
                             : colors.transparent,
-        color: mode === 'primary'? colors.white
+        color: mode === 'primary' || mode === 'black-fill'? colors.white
                 : mode === 'secondary'? colors.black : colors.borderGray,
         border: mode === 'secondary'
                 ? `1px solid ${colors.black}` : 'none', 
