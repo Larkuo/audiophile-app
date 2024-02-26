@@ -30,7 +30,6 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         backgroundRepeat: 'no-repeat',
         backgroundPosition: screenDimensions.width <= SCREEN_LIMITS.tablet? 'center' : 'left',
         backgroundSize: screenDimensions.width <= SCREEN_LIMITS.tablet? '100% auto' : '70% auto',
-        marginTop: screenDimensions.width <= SCREEN_LIMITS.mobile? '85%' : '5%',
         marginBottom: '5vh',
         paddingLeft: '7.5%',
         paddingRight: '7.5%',

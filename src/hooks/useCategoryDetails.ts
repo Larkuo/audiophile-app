@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import PAGE_DATA from '../resources/data.json';
 
-interface AppImageProps{
+export interface AppImageProps{
     mobile: string;
     tablet: string;
     desktop: string;
@@ -40,15 +40,11 @@ export function useCategoryDetails(pageCategory: string):{
 
     function getCategoryItems(){
         const data = PAGE_DATA.filter((item: CategoryItemProps) => item.category === pageCategory);
-        console.log({data});
         setCategoryItems(data);
     }
 
     useEffect(() => { 
         getCategoryItems();
-
-        console.log({pageCategory}); 
-        console.log({categoryItems}, categoryItems.length);
 
         return () => {
             setCategoryItems([]);

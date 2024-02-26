@@ -4,7 +4,7 @@ import { SCREEN_LIMITS, colors } from "../../theme/Theme";
 export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
     categoriesCardGroup: {
         width: '100%',
-        height: screenDimensions.width <= SCREEN_LIMITS.mobile? '60vh' : '40vh',
+        height: screenDimensions.width <= SCREEN_LIMITS.mobile? '120vh' : '40vh',
         display: 'flex',
         flexDirection: screenDimensions.width <= SCREEN_LIMITS.mobile? 'column' : 'row',
         paddingLeft: screenDimensions.width <= SCREEN_LIMITS.tablet? '5%' : '10%',
@@ -17,7 +17,6 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         boxSizing: 'border-box',
         justifyContent: screenDimensions.width <= SCREEN_LIMITS.mobile? 'flex-start' : 'space-between',
         alignItems: 'center',
-        position: 'relative',
     },
     categoryCard: {
         width: screenDimensions.width <= SCREEN_LIMITS.mobile? '90%' : '30%',

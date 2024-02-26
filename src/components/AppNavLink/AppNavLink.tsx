@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { colors } from '../../theme/Theme';
 import { useHover } from '../../hooks/useHover';
@@ -19,7 +19,13 @@ function AppNavLink({
 }: AppNavLinkProps) {
   const { pageCategory } = useParams();
 
-  const IS_ACTIVE = path !== '/' && pageCategory === path;
+  const IS_ACTIVE = path !== '/' && path.includes(pageCategory || '.');
+
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    setIsActive(path !== '/' && path.includes(pageCategory || '.'));
+  },[pageCategory])
 
   const {
       hover, 

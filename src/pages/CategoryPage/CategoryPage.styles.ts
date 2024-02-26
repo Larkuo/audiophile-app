@@ -17,6 +17,9 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
     categoryPage: {
         width: '100%',
         boxSizing: 'border-box',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
     },
     pageHeader: {
         width: '100%',
