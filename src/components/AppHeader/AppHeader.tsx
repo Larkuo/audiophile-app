@@ -28,6 +28,8 @@ export function AppHeader({
     ...styles(screenDimensions).appHeader,
     borderBottom: bottomBorder? `1px solid ${colors.borderGray}` : 'none',
   }
+
+  const cartCount = 0;
   
   return showBurger
   ?(
@@ -43,6 +45,9 @@ export function AppHeader({
       </div>
 
         <Link to={'/'} className="logo-link" style={styles(screenDimensions).logoLink}>
+          {cartCount > 0 && 
+            <div className='cart-count-bubble' style={styles(screenDimensions).countBubble}>{cartCount}</div>
+          }
           <img src={CartIcon} style={styles(screenDimensions).cartIcon}/>
         </Link>
     </div>
@@ -64,6 +69,9 @@ export function AppHeader({
       </div>
 
       <Link to={'/'} className="logo-link" style={styles(screenDimensions).logoLink}>
+        {cartCount > 0 && 
+          <div className='cart-count-bubble' style={styles(screenDimensions).countBubble}>{cartCount}</div>
+        }
         <img src={CartIcon} style={styles(screenDimensions).cartIcon}/>
       </Link>
     </div>

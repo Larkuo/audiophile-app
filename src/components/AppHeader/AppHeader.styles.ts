@@ -33,6 +33,8 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         color: 'white',
         fontWeight: '900',
         fontSize: '30px',
+        display: 'flex',
+        flexDirection: 'column',
     },
     navBar: {
         width: '70%',
@@ -48,4 +50,17 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         height: '100%',
         width: 'auto',
     },
+    countBubble: {
+        color: colors.black,
+        backgroundColor: colors.white,
+        borderRadius: '30px',
+        position: 'absolute',
+        zIndex: 5,
+        fontSize: '12px',
+        fontWeight: '900',
+        padding: '2px',
+        alignSelf: 'flex-end',
+        marginTop: '-10px',
+        marginRight: '-8px',
+    }
 }};
