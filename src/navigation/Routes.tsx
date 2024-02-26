@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { 
+    CategoryPage,
     EarphonesPage, 
     HeadphonesPage, 
     HomePage, 
@@ -25,17 +26,7 @@ export const APP_ROUTES: AppRoutesInterface[] = [
     },
     {
         key: 2,
-        path: "/headphones",
-        element: <HeadphonesPage />
-    },
-    {
-        key: 3,
-        path: "/speakers",
-        element: <SpeakersPage />
-    },
-    {
-        key: 4,
-        path: "/earphones",
-        element: <EarphonesPage />
+        path: "/categories/:pageCategory",
+        element: <CategoryPage />
     },
 ];

@@ -6,6 +6,7 @@ import AppLogo from '../../assets/shared/desktop/logo.svg';
 import { Link } from 'react-router-dom';
 import AppNavLink from '../AppNavLink/AppNavLink';
 import { SocialLinkGroup } from '..';
+import { APPNAV_DATA, AppNavDataProps } from '../../navigation/AppNavbarData';
 
 
 export function AppFooter() {
@@ -19,25 +20,14 @@ export function AppFooter() {
                     <img src={AppLogo} alt={'audiophile logo'} style={styles(screenDimensions).appLogo}/>
                 </Link>
                 <div style={styles(screenDimensions).navBar} className='nav-bar'>
-                    <AppNavLink 
-                        path={'/'} 
-                        name='home' 
-                        stylesOverride={styles(screenDimensions).navLink}
-                    />
-                    <AppNavLink 
-                        path={'/headphones'} 
-                        name='headphones'
-                        stylesOverride={styles(screenDimensions).navLink}
-                    />
-                    <AppNavLink 
-                        path={'/speakers'} 
-                        name='speakers'
-                        stylesOverride={styles(screenDimensions).navLink}
-                    />
-                    <AppNavLink 
-                        path={'/earphones'} 
-                        name='earphones'
-                    />
+                    {APPNAV_DATA.map((nav: AppNavDataProps, index: number) => 
+                        <AppNavLink 
+                            key={index}
+                            path={nav.path} 
+                            name={nav.name} 
+                            stylesOverride={styles(screenDimensions).navLink}
+                        />
+                    )}
                 </div>
             </div>
             <div className='footer-body-row' style={styles(screenDimensions).footerBodyRow}>

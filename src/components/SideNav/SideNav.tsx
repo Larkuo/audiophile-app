@@ -2,6 +2,7 @@ import React from 'react';
 import { styles } from './SideNav.styles';
 import AppNavLink from '../AppNavLink/AppNavLink';
 import { useScreenDimensions } from '../../hooks/useScreenDimensions';
+import { APPNAV_DATA, AppNavDataProps } from '../../navigation/AppNavbarData';
 
 interface SiveNavProps {
     closeSidenav: () => void;
@@ -16,30 +17,15 @@ export default function SideNav({closeSidenav}:SiveNavProps) {
                 <div className='side-nav-header' style={styles(screenDimensions).sidenavHeader}>
                     <a style={styles(screenDimensions).closeButton} onClick={closeSidenav}>(x)</a>
                 </div>
-                <AppNavLink 
-                    path={'/'} 
-                    name='home' 
-                    onClick={closeSidenav}
-                    stylesOverride={styles(screenDimensions).navLink}
-                />
-                <AppNavLink 
-                    path={'/headphones'} 
-                    name='headphones'
-                    onClick={closeSidenav}
-                    stylesOverride={styles(screenDimensions).navLink}
-                />
-                <AppNavLink 
-                    path={'/speakers'} 
-                    name='speakers'
-                    onClick={closeSidenav}
-                    stylesOverride={styles(screenDimensions).navLink}
-                />
-                <AppNavLink 
-                    path={'/earphones'} 
-                    name='earphones'
-                    onClick={closeSidenav}
-                    stylesOverride={styles(screenDimensions).navLink}
-                />
+                {APPNAV_DATA.map((nav: AppNavDataProps, index: number) => 
+                    <AppNavLink 
+                        key={index}
+                        path={nav.path} 
+                        name={nav.name}
+                        onClick={closeSidenav}
+                        stylesOverride={styles(screenDimensions).navLink} 
+                    />
+                )}
             </div>
         </div>
     );

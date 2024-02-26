@@ -14,7 +14,7 @@ const titleStyles = (screenDimensions: ScreenDimensionsProps) => {return(
 )};
 
 export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
-    speakersPage: {
+    categoryPage: {
         width: '100%',
         boxSizing: 'border-box',
     },

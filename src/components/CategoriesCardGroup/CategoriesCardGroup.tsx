@@ -10,7 +10,7 @@ export function CategoriesCardGroup() {
     const {screenDimensions} = useScreenDimensions();
 
     function gotoCategoryPage(category: string){
-        navigate(`/${category}`);
+        navigate(`/categories/${category}`);
     }
     
     return (

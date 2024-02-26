@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { colors } from '../../theme/Theme';
 import { useHover } from '../../hooks/useHover';
 
@@ -17,10 +17,9 @@ function AppNavLink({
     onClick,
     stylesOverride,
 }: AppNavLinkProps) {
-  const location = useLocation();
-  const { pathname } = location;
+  const { pageCategory } = useParams();
 
-  const IS_ACTIVE = path !== '/' && pathname === path;
+  const IS_ACTIVE = path !== '/' && pageCategory === path;
 
   const {
       hover, 

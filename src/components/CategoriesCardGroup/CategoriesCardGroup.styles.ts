@@ -36,7 +36,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         marginBottom: screenDimensions.width <= SCREEN_LIMITS.mobile
                         ? '-25%'
                         : screenDimensions.width <= SCREEN_LIMITS.tablet
-                        ? '-35%' 
+                        ? '-25%' 
                         : '-25%',
     },
     categoryUnderCard: {
@@ -47,7 +47,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         backgroundColor: colors.midGray,
         width: '100%',
         height: screenDimensions.width <= SCREEN_LIMITS.mobile? '90%'
-                : screenDimensions.width <= SCREEN_LIMITS.tablet? '55%' 
+                : screenDimensions.width <= SCREEN_LIMITS.tablet? '60%' 
                 : '65%',
         borderRadius: '5px',
         boxSizing: 'border-box',

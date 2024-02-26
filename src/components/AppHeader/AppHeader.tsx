@@ -11,6 +11,7 @@ import BurgerIcon from '../../assets/shared/tablet/icon-hamburger.svg';
 import { SCREEN_LIMITS } from '../../theme/Theme';
 import SideNav from '../SideNav/SideNav';
 import { useScreenDimensions } from '../../hooks/useScreenDimensions';
+import { APPNAV_DATA, AppNavDataProps } from '../../navigation/AppNavbarData';
 
 
 export function AppHeader() {
@@ -44,10 +45,13 @@ export function AppHeader() {
       </Link>
 
       <div style={styles(screenDimensions).navBar} className='nav-bar'>
-        <AppNavLink path={'/'} name='home'/>
-        <AppNavLink path={'/headphones'} name='headphones'/>
-        <AppNavLink path={'/speakers'} name='speakers'/>
-        <AppNavLink path={'/earphones'} name='earphones'/>
+        {APPNAV_DATA.map((nav: AppNavDataProps, index: number) => 
+          <AppNavLink 
+            key={index}
+            path={nav.path} 
+            name={nav.name} 
+          />
+        )}
       </div>
 
       <Link to={'/'} className="logo-link" style={styles(screenDimensions).logoLink}>
