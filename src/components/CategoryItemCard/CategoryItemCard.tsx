@@ -26,14 +26,9 @@ export function CategoryItemCard({
     imageLeft,
 }:CategoryItemCardProps) {
     const { screenDimensions } = useScreenDimensions();
-    // const imageSrc = '../.'.concat(screenDimensions.width <= SCREEN_LIMITS.mobile? image.mobile
-    //                         : screenDimensions.width <= SCREEN_LIMITS.tablet
-    //                         ? image.tablet : image.desktop);
-
-    const imageSrc = cardAssets(screenDimensions)[slug.replace('-', '_')];
-
-    // console.log({name, imageSrc, slug}, 'slug replace: ', slug.replace('-','_'));
-    // console.log(cardAssets(screenDimensions)['xx99_mark_one_headphones']);
+    const imageSrc = slug.includes('mark')
+        ? cardAssets(screenDimensions)[String(slug.split('-').join('_'))]
+        : cardAssets(screenDimensions)[slug.replace('-', '_')];
     
     return (
         <div 
@@ -46,7 +41,6 @@ export function CategoryItemCard({
             <img 
                 alt={`${name} product image`} 
                 src={imageSrc} 
-                // src={cardAssets(screenDimensions)['xx99_mark_one_headphones']}
                 className='item-image'
                 style={styles(screenDimensions).itemImage}
             />
