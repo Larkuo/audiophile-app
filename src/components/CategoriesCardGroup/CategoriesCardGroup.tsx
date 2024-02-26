@@ -4,14 +4,12 @@ import { CATEGORIES_CARD_DATA, CategoriesCardProps } from './CategoriesData';
 import { AppButton } from '..';
 import { useNavigate } from 'react-router-dom';
 import { useScreenDimensions } from '../../hooks/useScreenDimensions';
+import { useAppNavigation } from '../../hooks/useAppNavigation';
 
 export function CategoriesCardGroup() {
     const navigate = useNavigate();
     const {screenDimensions} = useScreenDimensions();
-
-    function gotoCategoryPage(category: string){
-        navigate(`/categories/${category}`);
-    }
+    const { gotoCategory } = useAppNavigation(navigate);
     
     return (
         <div className='categories-card-group' style={styles(screenDimensions).categoriesCardGroup}>
@@ -35,7 +33,7 @@ export function CategoriesCardGroup() {
                         <AppButton 
                             label='shop' 
                             mode='arrow' 
-                            onClick={() => gotoCategoryPage(card.label)}
+                            onClick={() => gotoCategory(card.label)}
                         />
                     </div>
                 </div>

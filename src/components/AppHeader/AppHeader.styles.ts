@@ -12,7 +12,6 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        borderBottom: `1px solid ${colors.borderGray}`,
     },
     menuLogoGroup: {
         width: screenDimensions.width <= SCREEN_LIMITS.mobile? '70%':'45%',

@@ -8,18 +8,20 @@ import { AppButton } from '..';
 import zx9_desktop from '../../assets/home/desktop/image-speaker-zx9.png';
 import zx9_tablet from '../../assets/home/tablet/image-speaker-zx9.png';
 import zx9_mobile from '../../assets/home/mobile/image-speaker-zx9.png';
+import { useNavigate } from 'react-router-dom';
+import { useAppNavigation } from '../../hooks/useAppNavigation';
 
 
 export function ZX9HomeSection() {
     const {screenDimensions} = useScreenDimensions();
 
+    const navigate = useNavigate();
+    const { gotoProductDetails } = useAppNavigation(navigate);
+
     const zx9Image = screenDimensions.width <= SCREEN_LIMITS.mobile? zx9_mobile
             : screenDimensions.width <= SCREEN_LIMITS.tablet? zx9_tablet 
             : zx9_desktop;
 
-    function gotoProduct(){
-        console.log('got to zx9 details');
-    }
 
     return (
         <div className='zx9-speaker-section' style={styles(screenDimensions).zx9SpeakerSection}>
@@ -38,7 +40,7 @@ export function ZX9HomeSection() {
                     label={'see product'} 
                     mode='black-fill' 
                     stylesOverride={styles(screenDimensions).seeProductButton}
-                    onClick={gotoProduct}
+                    onClick={() => gotoProductDetails('zx9-speaker')}
                 />
             </div>
         </div>

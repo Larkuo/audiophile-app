@@ -1,10 +1,8 @@
 import { ReactNode } from "react";
 import { 
     CategoryPage,
-    EarphonesPage, 
-    HeadphonesPage, 
     HomePage, 
-    SpeakersPage 
+    ProductDetailsPage, 
 } from "../pages";
 
 export interface AppRoutesInterface{
@@ -28,5 +26,10 @@ export const APP_ROUTES: AppRoutesInterface[] = [
         key: 2,
         path: "/categories/:pageCategory",
         element: <CategoryPage />
+    },
+    {
+        key: 3,
+        path: "/products/:productSlug",
+        element: <ProductDetailsPage />
     },
 ];

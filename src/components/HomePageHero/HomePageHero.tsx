@@ -3,16 +3,12 @@ import { styles } from './HomePageHero.styles';
 import { useScreenDimensions } from '../../hooks/useScreenDimensions';
 import { AppButton, AppHeader } from '..';
 import { useNavigate } from 'react-router-dom';
+import { useAppNavigation } from '../../hooks/useAppNavigation';
 
 export function HomePageHero() {
     const navigate = useNavigate();
     const {screenDimensions} = useScreenDimensions();
-  
-    function gotoProductDetailsPage(category: string, product: string){
-      // navigate(`/${category}/${product}`);
-      console.log({category, product});
-      navigate(`/${category}`);
-    }    
+    const { gotoProductDetails } = useAppNavigation(navigate); 
     
     return (
         <div className='header-hero-section' style={styles(screenDimensions).headerHeroSection}>
@@ -27,7 +23,7 @@ export function HomePageHero() {
                 label='see product' 
                 mode='primary' 
                 stylesOverride={styles(screenDimensions).heroSeeProductButton}
-                onClick={() => gotoProductDetailsPage('headphones', 'xx99 mark ii headphones')}
+                onClick={() => gotoProductDetails('xx99-mark-two-headphones')}
             />
             </div>
         </div>

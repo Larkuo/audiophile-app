@@ -5,6 +5,8 @@ import { useScreenDimensions } from '../../hooks/useScreenDimensions';
 import { SCREEN_LIMITS } from '../../theme/Theme';
 import { AppButton } from '..';
 import { cardAssets } from '../CategoriesCardGroup/CategoriesCardAssests';
+import { useNavigate } from 'react-router-dom';
+import { useAppNavigation } from '../../hooks/useAppNavigation';
 
 interface CategoryItemCardProps{
     id: number;
@@ -26,6 +28,15 @@ export function CategoryItemCard({
     imageLeft,
 }:CategoryItemCardProps) {
     const { screenDimensions } = useScreenDimensions();
+
+    const navigate = useNavigate();
+    const { gotoProductDetails } = useAppNavigation(navigate);
+
+    function seeProduct(){
+        gotoProductDetails(slug);
+    }
+
+
     const imageSrc = slug.includes('mark')
         ? cardAssets(screenDimensions)[String(slug.split('-').join('_'))]
         : cardAssets(screenDimensions)[slug.replace('-', '_')];
@@ -53,7 +64,7 @@ export function CategoryItemCard({
                 <AppButton 
                     label='see product' 
                     mode='primary' 
-                    onClick={() => {}}
+                    onClick={seeProduct}
                 />
             </div>
         </div>

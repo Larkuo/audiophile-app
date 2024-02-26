@@ -8,23 +8,32 @@ import AppLogo from '../../assets/shared/desktop/logo.svg';
 import CartIcon from '../../assets/shared/desktop/icon-cart.svg';
 import BurgerIcon from '../../assets/shared/tablet/icon-hamburger.svg';
 
-import { SCREEN_LIMITS } from '../../theme/Theme';
+import { SCREEN_LIMITS, colors } from '../../theme/Theme';
 import SideNav from '../SideNav/SideNav';
 import { useScreenDimensions } from '../../hooks/useScreenDimensions';
 import { APPNAV_DATA, AppNavDataProps } from '../../navigation/AppNavbarData';
 
 
-export function AppHeader() {
+export function AppHeader({
+  bottomBorder = true,
+}:{
+  bottomBorder?: boolean;
+}) {
   const {screenDimensions} = useScreenDimensions();
 
   const showBurger = screenDimensions.width <= SCREEN_LIMITS.tablet;
   const [showSideNav, setShowSideNav] = useState(false);
+
+  const headerStyle = {
+    ...styles(screenDimensions).appHeader,
+    borderBottom: bottomBorder? `1px solid ${colors.borderGray}` : 'none',
+  }
   
   return showBurger
   ?(
     <>
     {showSideNav && <SideNav closeSidenav={() => setShowSideNav(false)}/>}
-    <div style={styles(screenDimensions).appHeader} className='app-header'>
+    <div style={headerStyle} className='app-header'>
       <div style={styles(screenDimensions).menuLogoGroup}>
         <img src={BurgerIcon} style={styles(screenDimensions).menuIcon} onClick={() => setShowSideNav(true)}/>
 
@@ -39,7 +48,7 @@ export function AppHeader() {
     </div>
     </>
   ):(
-    <div style={styles(screenDimensions).appHeader} className='app-header'>
+    <div style={headerStyle} className='app-header'>
       <Link to={'/'} className="logo-link" style={styles(screenDimensions).logoLink}>
         <img src={AppLogo} style={styles(screenDimensions).appLogo}/>
       </Link>

@@ -7,18 +7,19 @@ import yx1_desktop from '../../assets/home/desktop/image-earphones-yx1.jpg';
 import yx1_tablet from '../../assets/home/tablet/image-earphones-yx1.jpg';
 import yx1_mobile from '../../assets/home/mobile/image-earphones-yx1.jpg';
 import { AppButton } from '..';
+import { useNavigate } from 'react-router-dom';
+import { useAppNavigation } from '../../hooks/useAppNavigation';
 
 export function YX1HomeSection() {
     const { screenDimensions } = useScreenDimensions();
 
+    const navigate = useNavigate();
+    const { gotoProductDetails } = useAppNavigation(navigate);
+
     const yx1Image = screenDimensions.width <= SCREEN_LIMITS.mobile
                             ? yx1_mobile
                             : screenDimensions.width <= SCREEN_LIMITS.tablet
-                            ? yx1_tablet : yx1_desktop;
-
-    function gotoProduct(){
-        console.log('got to yx1 details');
-    }                        
+                            ? yx1_tablet : yx1_desktop;                     
 
     return (
         <div className='yx1-section' style={styles(screenDimensions).yx1Section}>
@@ -34,7 +35,7 @@ export function YX1HomeSection() {
                             ? 'secondary' : 'black-fill'} 
                     label='see product' 
                     stylesOverride={styles(screenDimensions).seeProductButton}
-                    onClick={gotoProduct}
+                    onClick={() => gotoProductDetails('yx1-earphones')}
                 />
             </div>
         </div>

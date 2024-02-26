@@ -14,6 +14,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
                     : '50px',
         paddingBottom: '30px',
         marginTop: '5%',
+        marginBottom: '5%',
         boxSizing: 'border-box',
         justifyContent: screenDimensions.width <= SCREEN_LIMITS.mobile? 'flex-start' : 'space-between',
         alignItems: 'center',
