@@ -6,7 +6,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         width: '100%',
         height: '10vh',
         position: 'relative',
-        color: 'white',
+        color: colors.white,
         boxSizing: 'border-box',
         display: 'flex',
         flexDirection: 'row',

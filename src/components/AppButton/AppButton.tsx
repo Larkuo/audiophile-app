@@ -42,7 +42,7 @@ export function AppButton({
         ...styles.button,
         ...stylesOverride,
         backgroundColor: mode === 'primary' ? colors.primary 
-                            : mode === 'secondary'? colors.white
+                            : mode === 'secondary'? colors.transparent
                             : mode === 'black-fill'? colors.black
                             : colors.transparent,
         color: mode === 'primary' || mode === 'black-fill'? colors.white

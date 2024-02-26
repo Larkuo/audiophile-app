@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppHeader } from '../../components';
+import { AppFooter, AppHeader } from '../../components';
 import { styles } from './SpeakersPage.styles';
 import { useScreenDimensions } from '../../hooks/useScreenDimensions';
 
@@ -12,6 +12,7 @@ export function SpeakersPage() {
           <AppHeader />
           <h1 className='page-title' style={styles(screenDimensions).pageTitle}>Speakers</h1>
         </div>
+        <AppFooter />
       </div>
     );
 }

@@ -10,6 +10,7 @@ export const colors = {
     primary: '#D87D4A',
     hoverPrimary: '#FBAF85',
     transparent: 'transparent',
+    filterPrimary: ' invert(53%) sepia(95%) saturate(322%) hue-rotate(336deg) brightness(87%) contrast(94%)',
 }
 
 export const SCREEN_LIMITS = {
@@ -17,7 +18,6 @@ export const SCREEN_LIMITS = {
     tablet: 768,
     mobile: 425,
 }
-export const SCREEN_WIDTH = window.screen.width;
 
 export const textStyles = {
     h1: {

@@ -1,13 +1,15 @@
+import { ScreenDimensionsProps } from "../../hooks/useScreenDimensions";
 import { 
     SCREEN_LIMITS, 
-    SCREEN_WIDTH, 
     colors, 
     textStyles 
 } from "../../theme/Theme";
 
-const navStyle = SCREEN_WIDTH <= SCREEN_LIMITS.mobile? textStyles.h6 : textStyles.h5;
+const navStyle = (screenDimensions: ScreenDimensionsProps) => {
+    return screenDimensions.width <= SCREEN_LIMITS.mobile? textStyles.h6 : textStyles.h5;
+}
 
-export const styles = {
+export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
     sideNav: {
         width: '100vw',
         height: '100vh',
@@ -47,13 +49,13 @@ export const styles = {
         width: '30%',
     },
     closeButton: {
-        ...navStyle,
+        ...navStyle(screenDimensions),
         textTransform: 'none',
     },
     navLink: {
-        ...navStyle,
+        ...navStyle(screenDimensions),
         marginTop: '3%',
         marginBottom: '3%',
         paddingBottom: '3%',
     }
-}
+}}

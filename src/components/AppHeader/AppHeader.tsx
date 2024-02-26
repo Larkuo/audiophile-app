@@ -28,7 +28,7 @@ export function AppHeader() {
         <img src={BurgerIcon} style={styles(screenDimensions).menuIcon} onClick={() => setShowSideNav(true)}/>
 
         <Link to={'/'} className="logo-link" style={styles(screenDimensions).logoLink}>
-          <img src={AppLogo} style={styles(screenDimensions).appLogo}/>
+          <img src={AppLogo} alt={'audiophile logo'} style={styles(screenDimensions).appLogo}/>
         </Link>
       </div>
 
