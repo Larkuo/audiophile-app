@@ -11,10 +11,12 @@ export function useAppNavigation(navigate: NavigateFunction):{
 
     function gotoCategory(category: string){
         navigate(`/categories/${category}`);
+        window.scrollTo(0, 0);
     }
 
     function gotoProductDetails(slug: string){
-        navigate(`/products/${slug}`)
+        navigate(`/products/${slug}`);
+        window.scrollTo(0, 0);
     }
 
     return {
