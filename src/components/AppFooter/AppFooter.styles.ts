@@ -4,7 +4,7 @@ import { SCREEN_LIMITS, colors, textStyles } from "../../theme/Theme"
 export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
     appFooter: {
         width: '100%',
-        boxSizing: 'border-box',
+        // boxSizing: 'border-box',
         display: 'flex',
         flexDirection: 'column',
         backgroundColor: colors.black,
@@ -69,7 +69,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         flexDirection: screenDimensions.width <= SCREEN_LIMITS.mobile? 'column' : 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        boxSizing: 'border-box',
+        // boxSizing: 'border-box',
     },
     navLink:{
         marginBottom: screenDimensions.width <= SCREEN_LIMITS.mobile? '3%' : '0%',

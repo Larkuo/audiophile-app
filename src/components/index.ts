@@ -10,3 +10,6 @@ export * from './AudioGearSection/AudioGearSection';
 export * from './AppFooter/AppFooter';
 export * from './SocialLinkGroup/SocialLinkGroup';
 export * from './CategoryItemCard/CategoryItemCard';
+export * from './QuantityInput/QuantityInput';
+export * from './ProductDetailsInfoCard/ProductDetailsInfoCard';
+export * from './ProductFeaturesRow/ProductFeaturesRow';

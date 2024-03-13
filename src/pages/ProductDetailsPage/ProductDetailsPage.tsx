@@ -1,24 +1,35 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { useProductDetails } from '../../hooks/useProductDetails';
+import { useNavigate } from 'react-router-dom';
 import { styles } from './ProductDetailsPage.styles';
 import { useScreenDimensions } from '../../hooks/useScreenDimensions';
-import { AppFooter, AppHeader, CategoriesCardGroup } from '../../components';
+import { useAppNavigation } from '../../hooks/useAppNavigation';
+import { 
+    AppFooter, 
+    AppHeader, 
+    CategoriesCardGroup, 
+    ProductDetailsInfoCard,
+    ProductFeaturesRow
+} from '../../components';
 
 export function ProductDetailsPage() {
-    const { productSlug } = useParams();
-    const { screenDimensions } = useScreenDimensions();
-    const { productDetails } = useProductDetails(productSlug || '');
+    const navigate = useNavigate();    
 
-    console.log({productDetails});
+    const { screenDimensions } = useScreenDimensions();
+    const { goBack } = useAppNavigation(navigate);
 
     return (
         <div className='product-details-page' style={styles(screenDimensions).productPage}>
             <div className='page-header' style={styles(screenDimensions).pageHeader}>
                 <AppHeader bottomBorder={false}/>
             </div>
-            ProductDetailsPage - {productDetails.name}
-
+            <div className='goback-row' style={styles(screenDimensions).goBackRow}>
+                <span 
+                    className='goback-button'
+                    style={styles(screenDimensions).goBackText}
+                    onClick={goBack}
+                >Go Back</span>
+            </div>           
+            <ProductDetailsInfoCard />
+            <ProductFeaturesRow />
             <CategoriesCardGroup />
             <AppFooter />
         </div>

@@ -39,7 +39,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'right',
-        boxSizing: 'border-box',
+        // boxSizing: 'border-box',
         paddingLeft: '5%',
         paddingRight: '5%',
     },

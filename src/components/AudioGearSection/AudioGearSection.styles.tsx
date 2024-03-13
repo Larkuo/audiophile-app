@@ -18,7 +18,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
         display: 'flex',
         flexDirection: screenDimensions.width <= SCREEN_LIMITS.tablet? 'column' : 'row-reverse',
         alignItems: 'center',
-        boxSizing: 'border-box',
+        // boxSizing: 'border-box',
     },
     BGImage: {
         width: screenDimensions.width <= SCREEN_LIMITS.tablet? '100%' : '47.5%',
@@ -31,7 +31,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
         borderRadius: '5px',
         display: 'flex',
         flexDirection: 'column',
-        boxSizing: 'border-box',
+        // boxSizing: 'border-box',
     },
     BGTitle: {
         ...titleStyle(screenDimensions),

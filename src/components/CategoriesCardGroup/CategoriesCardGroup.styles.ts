@@ -15,7 +15,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         paddingBottom: '30px',
         marginTop: '5%',
         marginBottom: '5%',
-        boxSizing: 'border-box',
+        // boxSizing: 'border-box',
         justifyContent: screenDimensions.width <= SCREEN_LIMITS.mobile? 'flex-start' : 'space-between',
         alignItems: 'center',
     },
@@ -50,7 +50,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
                 : screenDimensions.width <= SCREEN_LIMITS.tablet? '60%' 
                 : '65%',
         borderRadius: '5px',
-        boxSizing: 'border-box',
+        // boxSizing: 'border-box',
         alignSelf: 'center',
         paddingBottom: '5%',
     },

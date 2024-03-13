@@ -2,11 +2,11 @@ import React from 'react';
 import { styles } from './CategoryItemCard.styles';
 import { AppImageProps } from '../../hooks/useCategoryDetails';
 import { useScreenDimensions } from '../../hooks/useScreenDimensions';
-import { SCREEN_LIMITS } from '../../theme/Theme';
 import { AppButton } from '..';
 import { cardAssets } from '../CategoriesCardGroup/CategoriesCardAssests';
 import { useNavigate } from 'react-router-dom';
 import { useAppNavigation } from '../../hooks/useAppNavigation';
+import { SCREEN_LIMITS } from '../../theme/Theme';
 
 interface CategoryItemCardProps{
     id: number;
@@ -65,6 +65,9 @@ export function CategoryItemCard({
                     label='see product' 
                     mode='primary' 
                     onClick={seeProduct}
+                    stylesOverride={{
+                        width: screenDimensions.width <= SCREEN_LIMITS.mobile? '45%' : '35%',
+                    }}
                 />
             </div>
         </div>

@@ -4,6 +4,6 @@ export const styles = {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        boxSizing: 'border-box',
+        // boxSizing: 'border-box',
     },
 }

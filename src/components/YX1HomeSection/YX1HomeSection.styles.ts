@@ -21,7 +21,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
         display: 'flex',
         flexDirection: screenDimensions.width <= SCREEN_LIMITS.mobile? 'column' : 'row',
         justifyContent: 'space-between',
-        boxSizing: 'border-box',
+        // boxSizing: 'border-box',
     },
     productImage: {
         width: screenDimensions.width <= SCREEN_LIMITS.mobile? '100%' : '47.5%',
@@ -39,7 +39,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
         alignItems: screenDimensions.width <= SCREEN_LIMITS.mobile? 'center' : 'flex-start',
         paddingLeft: '5%',
         paddingRight: '5%',
-        boxSizing: 'border-box',
+        // boxSizing: 'border-box',
     },
     yx1Title: {
         ...productNameStyle(screenDimensions),

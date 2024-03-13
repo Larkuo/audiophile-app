@@ -1,12 +1,11 @@
 import { ScreenDimensionsProps } from "../../hooks/useScreenDimensions"
-import { SCREEN_LIMITS, colors } from "../../theme/Theme"
+import { SCREEN_LIMITS, colors, textStyles } from "../../theme/Theme"
 
 export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
     productPage: {
         width: '100%',
-        boxSizing: 'border-box',
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'column' as any,
         alignItems: 'center',
     },
     pageHeader: {
@@ -15,6 +14,14 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
         paddingLeft: screenDimensions.width > SCREEN_LIMITS.tablet? '10%':'5%',
         paddingRight: screenDimensions.width > SCREEN_LIMITS.tablet? '10%':'5%',
         paddingBottom: '2.5%',
-        boxSizing: 'border-box',
-    }
+    },
+    goBackRow: {
+        width: '100%',
+        paddingLeft: '10%',
+        paddingRight: '10%',
+        paddingTop: '5%',
+    },
+    goBackText: {
+        ...textStyles.body,
+    }, 
 }}

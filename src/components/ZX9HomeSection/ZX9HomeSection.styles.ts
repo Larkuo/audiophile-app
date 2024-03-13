@@ -24,7 +24,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
                 : screenDimensions.width <= SCREEN_LIMITS.tablet? '75vh'
                 : '90vh',
         backgroundColor: colors.primary,
-        boxSizing: 'border-box',
+        // boxSizing: 'border-box',
         borderRadius: '5px',
         backgroundImage: `url('${PageAssets.patternCircles}')`,
         backgroundRepeat: 'no-repeat',
@@ -52,7 +52,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         height: screenDimensions.width <= SCREEN_LIMITS.tablet? '60%' : '70%',
         paddingRight: screenDimensions.width <= SCREEN_LIMITS.tablet? '0%' : '10%',
         paddingTop: screenDimensions.width <= SCREEN_LIMITS.tablet? '0px' : '10%',
-        boxSizing: 'border-box',
+        // boxSizing: 'border-box',
         color: colors.white,
         display: 'flex',
         flexDirection: 'column',

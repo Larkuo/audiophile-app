@@ -7,7 +7,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         height: '10vh',
         position: 'relative',
         color: colors.white,
-        boxSizing: 'border-box',
+        // boxSizing: 'border-box',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -44,7 +44,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         alignItems: 'center',
         paddingLeft: '15%',
         paddingRight: '15%',
-        boxSizing: 'border-box',
+        // boxSizing: 'border-box',
     },
     cartIcon: {
         height: '100%',

@@ -16,7 +16,7 @@ const titleStyles = (screenDimensions: ScreenDimensionsProps) => {return(
 export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
     categoryPage: {
         width: '100%',
-        boxSizing: 'border-box',
+        // boxSizing: 'border-box',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
@@ -30,7 +30,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
         paddingRight: screenDimensions.width > SCREEN_LIMITS.tablet? '10%':'5%',
         paddingBottom: '2.5%',
         color: colors.white,
-        boxSizing: 'border-box',
+        // boxSizing: 'border-box',
     },
     pageTitle: {
         ...titleStyles(screenDimensions),
