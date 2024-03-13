@@ -2,11 +2,11 @@ export const styles = {
     button: {
         width: '35%',
         display: 'flex',
-        flexDirection: 'row',
+        flexDirection: 'row' as any,
         alignItems: 'center',
         justifyContent: 'center',
         outline: 'none',
-        textTransform: 'uppercase',
+        textTransform: 'uppercase' as any,
         fontSize: '12px',
         fontWeight: 'bold',
         paddingTop: '10px',

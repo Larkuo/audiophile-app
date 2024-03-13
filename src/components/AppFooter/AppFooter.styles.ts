@@ -4,9 +4,8 @@ import { SCREEN_LIMITS, colors, textStyles } from "../../theme/Theme"
 export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
     appFooter: {
         width: '100%',
-        // boxSizing: 'border-box',
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'column' as any,
         backgroundColor: colors.black,
         paddingLeft: '10%',
         paddingRight: '10%',
@@ -25,7 +24,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         width: '100%', 
         height: '30vh',
         display: 'flex', 
-        flexDirection: 'row',
+        flexDirection: 'row'  as any,
         justifyContent: 'space-between',
     },
     footerLeft: {
@@ -33,7 +32,8 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         height: '100%',
         display: 'flex', 
         flexDirection: screenDimensions.width <= SCREEN_LIMITS.mobile? 'column' 
-                        : screenDimensions.width <= SCREEN_LIMITS.tablet? 'row' : 'column',
+                        : screenDimensions.width <= SCREEN_LIMITS.tablet? 'row' 
+                        : 'column'  as any,
         justifyContent: 'space-between',
         color: colors.borderGray,
     },
@@ -41,14 +41,15 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         width: '47.5%',
         height: '80%',
         display: 'flex', 
-        flexDirection: 'column',
+        flexDirection: 'column'  as any,
         justifyContent: 'space-between',
         alignItems: 'flex-end',
     },
     logoNavRow: {
         width: '100%',
         display: 'flex', 
-        flexDirection: screenDimensions.width <= SCREEN_LIMITS.tablet? 'column' : 'row',
+        flexDirection: screenDimensions.width <= SCREEN_LIMITS.tablet? 'column' 
+                            : 'row'  as any,
         justifyContent: screenDimensions.width <= SCREEN_LIMITS.tablet? 'flex-start' : 'space-between',
         alignItems: screenDimensions.width <= SCREEN_LIMITS.mobile? 'center' : 'flex-start',
     },
@@ -66,10 +67,10 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
                 : screenDimensions.width <= SCREEN_LIMITS.tablet? '60%' : '47.5%',
         marginTop: screenDimensions.width <= SCREEN_LIMITS.tablet? '3%' : '0%',
         display: 'flex',
-        flexDirection: screenDimensions.width <= SCREEN_LIMITS.mobile? 'column' : 'row',
+        flexDirection: screenDimensions.width <= SCREEN_LIMITS.mobile? 'column' 
+                            : 'row'  as any,
         justifyContent: 'space-between',
         alignItems: 'center',
-        // boxSizing: 'border-box',
     },
     navLink:{
         marginBottom: screenDimensions.width <= SCREEN_LIMITS.mobile? '3%' : '0%',
@@ -79,7 +80,8 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
                 : screenDimensions.width <= SCREEN_LIMITS.tablet? '100%': '40%',
         color: colors.borderGray,
         marginTop: screenDimensions.width <= SCREEN_LIMITS.tablet? '10%' : '0%',
-        textAlign: screenDimensions.width <= SCREEN_LIMITS.mobile? 'center' : 'left',
+        textAlign: screenDimensions.width <= SCREEN_LIMITS.mobile? 'center' 
+                        : 'left'  as any,
     },
     footerBodyText: {
         ...textStyles.body,
@@ -90,7 +92,8 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         display: 'flex',
         marginTop: screenDimensions.width <= SCREEN_LIMITS.tablet? '10%' : '0%',
         flexDirection: screenDimensions.width <= SCREEN_LIMITS.mobile? 'column' 
-                        : screenDimensions.width <= SCREEN_LIMITS.tablet? 'row' : 'column-reverse',
+                        : screenDimensions.width <= SCREEN_LIMITS.tablet? 'row' 
+                        : 'column-reverse'  as any,
         justifyContent: screenDimensions.width <= SCREEN_LIMITS.mobile? 'center' 
                         : 'space-between',
         alignItems: screenDimensions.width <= SCREEN_LIMITS.mobile? 'center' 

@@ -1,4 +1,3 @@
-import React from 'react';
 import { useScreenDimensions } from '../../hooks/useScreenDimensions';
 import { styles } from './ZX7HomeSection.styles';
 import { AppButton } from '..';

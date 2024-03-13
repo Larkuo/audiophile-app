@@ -1,4 +1,3 @@
-import React from 'react';
 import { styles } from './SocialLinkGroup.styles';
 import { useHover } from '../../hooks/useHover';
 import { colors } from '../../theme/Theme';
@@ -17,17 +16,19 @@ const SocialIcon = ({name}:{name: SocialIconType}) => {
     setHoverTrue, 
     setHoverFalse
   } = useHover();
+
+  const { screenDimensions } = useScreenDimensions();
   
   return(
     <a 
       href={`https://${name}.com` } 
-      target="_blank" style={styles.socialLink}
+      target="_blank" style={styles(screenDimensions).socialLink}
       className={`${name} social link`}
     >
       <img 
         src={name === 'facebook'? facebook_svg : name === 'twitter'? twitter_svg : instagram_svg} 
         style={{
-          ...styles.socialIcon, 
+          ...styles(screenDimensions).socialIcon, 
           filter: hover? colors.filterPrimary : 'none'
         }} 
         onMouseEnter={setHoverTrue}
@@ -39,7 +40,7 @@ const SocialIcon = ({name}:{name: SocialIconType}) => {
 }
 
 export function SocialLinkGroup() {
-  const { screenDimensions } = useScreenDimensions();
+    const { screenDimensions } = useScreenDimensions();
   
     return (
       <div style={styles(screenDimensions).socialGroup}>

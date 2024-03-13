@@ -27,7 +27,7 @@ import zx9_mobile from '../../assets/product-zx9-speaker/mobile/image-category-p
 
 
 
-export const cardAssets = (screenDimensions: ScreenDimensionsProps) => {return{
+export const cardAssets = (screenDimensions: ScreenDimensionsProps) => <any>({
     yx1_earphones: screenDimensions.width <= SCREEN_LIMITS.mobile
             ? yx1_mobile
             : screenDimensions.width <= SCREEN_LIMITS.tablet
@@ -52,4 +52,4 @@ export const cardAssets = (screenDimensions: ScreenDimensionsProps) => {return{
             ? zx9_mobile
             : screenDimensions.width <= SCREEN_LIMITS.tablet
             ? zx9_tablet  : zx9_desktop,
-}}
+});

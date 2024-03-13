@@ -27,13 +27,12 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'center top',
         backgroundSize: '100% 100%',
-        // boxSizing: 'border-box',
         paddingLeft: screenDimensions.width > SCREEN_LIMITS.tablet? '10%':'5%',
         paddingRight: screenDimensions.width > SCREEN_LIMITS.tablet? '10%':'5%',
         paddingBottom: screenDimensions.width > SCREEN_LIMITS.tablet? '30px' : '15px',
         display: 'flex',
-        flexDirection: 'column',
-        position: 'relative',
+        flexDirection: 'column'  as any,
+        position: 'relative'  as any,
     }, 
     heroSection: {
         width: screenDimensions.width <= SCREEN_LIMITS.mobile
@@ -42,16 +41,15 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
                 ? '70%' : '35%',
         height: '90%',
         backgroundColor: colors.transparent,
-        // boxSizing: 'border-box',
         paddingTop: '10%',
         paddingBottom: '10%',
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'column'  as any,
         justifyContent: 'center',
-        position: 'relative',
+        position: 'relative'  as any,
         color: colors.white,
         alignItems: screenDimensions.width > SCREEN_LIMITS.tablet? 'flex-start':'center',
-        textAlign: screenDimensions.width > SCREEN_LIMITS.tablet? 'left':'center',
+        textAlign: screenDimensions.width > SCREEN_LIMITS.tablet? 'left':'center'  as any,
         alignSelf: screenDimensions.width > SCREEN_LIMITS.tablet? 'flex-start': 'center',
     },
     newProduct: {
@@ -61,7 +59,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
                     ? '12px' : '14px',
         lineHeight: '19px',
         letterSpacing: '10px',
-        textTransform: 'uppercase',
+        textTransform: 'uppercase'  as any,
     }, 
     productName: screenDimensions.width <= SCREEN_LIMITS.mobile
                     ? textStyles.h3
@@ -75,7 +73,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
                     ? '13px' : '15px',
         lineHeight: '25px',
         fontWeight: '700',
-        textTransform: 'capitalise',
+        textTransform: 'capitalise'  as any,
         width: '70%'
     },
     heroSeeProductButton: {

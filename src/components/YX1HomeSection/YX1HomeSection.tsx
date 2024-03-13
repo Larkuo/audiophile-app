@@ -1,4 +1,3 @@
-import React from 'react';
 import { styles } from './YX1HomeSection.styles';
 import { useScreenDimensions } from '../../hooks/useScreenDimensions';
 import { SCREEN_LIMITS } from '../../theme/Theme';

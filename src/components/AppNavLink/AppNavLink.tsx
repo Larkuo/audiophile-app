@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 import { colors } from '../../theme/Theme';
 import { useHover } from '../../hooks/useHover';
 
@@ -19,7 +19,7 @@ function AppNavLink({
 }: AppNavLinkProps) {
   const { pageCategory } = useParams();
 
-  const IS_ACTIVE = path !== '/' && path.includes(pageCategory || '.');
+  // const IS_ACTIVE = path !== '/' && path.includes(pageCategory || '.');
 
   const [isActive, setIsActive] = useState(false);
 
@@ -36,10 +36,10 @@ function AppNavLink({
   const styles = {
     navLink: {
         textDecoration: 'none',
-        color: IS_ACTIVE || hover? colors.primary : colors.white,
+        color: isActive || hover? colors.primary : colors.white,
         fontSize: '15px',
         fontWeight: '900',
-        textTransform: 'uppercase',
+        textTransform: 'uppercase'  as any,
     },
   };
 

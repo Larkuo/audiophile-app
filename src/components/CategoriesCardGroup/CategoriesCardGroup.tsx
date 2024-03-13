@@ -1,4 +1,3 @@
-import React from 'react';
 import { styles } from './CategoriesCardGroup.styles';
 import { CATEGORIES_CARD_DATA, CategoriesCardProps } from './CategoriesData';
 import { AppButton } from '..';
@@ -13,7 +12,7 @@ export function CategoriesCardGroup() {
     
     return (
         <div className='categories-card-group' style={styles(screenDimensions).categoriesCardGroup}>
-            {CATEGORIES_CARD_DATA.map((card: CategoriesCardProps, i: number) => 
+            {CATEGORIES_CARD_DATA.map((card: CategoriesCardProps) => 
                 <div 
                     key={card.key} 
                     className='category-card' 

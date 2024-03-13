@@ -1,4 +1,3 @@
-import React from 'react';
 import { styles } from './CategoryItemCard.styles';
 import { AppImageProps } from '../../hooks/useCategoryDetails';
 import { useScreenDimensions } from '../../hooks/useScreenDimensions';
@@ -19,12 +18,10 @@ interface CategoryItemCardProps{
 }
 
 export function CategoryItemCard({
-    id,
     name,
     slug,
     description,
     isNew,
-    image,
     imageLeft,
 }:CategoryItemCardProps) {
     const { screenDimensions } = useScreenDimensions();

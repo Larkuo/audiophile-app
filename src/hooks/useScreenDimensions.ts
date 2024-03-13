@@ -18,7 +18,6 @@ export function useScreenDimensions():{
         const height = window.screen.height;
 
         setScreenDimensions({width, height});
-        // console.log('Dimensions Changed: ',{width, height});
     }
 
     useEffect(() => {

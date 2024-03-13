@@ -1,4 +1,3 @@
-import React from 'react';
 import { styles } from './HomePageHero.styles';
 import { useScreenDimensions } from '../../hooks/useScreenDimensions';
 import { AppButton, AppHeader } from '..';

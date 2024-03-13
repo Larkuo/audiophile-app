@@ -6,7 +6,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         width: '100%',
         height: screenDimensions.width <= SCREEN_LIMITS.mobile? '120vh' : '40vh',
         display: 'flex',
-        flexDirection: screenDimensions.width <= SCREEN_LIMITS.mobile? 'column' : 'row',
+        flexDirection: screenDimensions.width <= SCREEN_LIMITS.mobile? 'column' : 'row'  as any,
         paddingLeft: screenDimensions.width <= SCREEN_LIMITS.tablet? '5%' : '10%',
         paddingRight: screenDimensions.width <= SCREEN_LIMITS.tablet? '5%' : '10%',
         paddingTop: screenDimensions.width <= SCREEN_LIMITS.mobile? '30px'
@@ -15,7 +15,6 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         paddingBottom: '30px',
         marginTop: '5%',
         marginBottom: '5%',
-        // boxSizing: 'border-box',
         justifyContent: screenDimensions.width <= SCREEN_LIMITS.mobile? 'flex-start' : 'space-between',
         alignItems: 'center',
     },
@@ -23,12 +22,12 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         width: screenDimensions.width <= SCREEN_LIMITS.mobile? '90%' : '30%',
         height: '100%',
         dispay: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'column'  as any,
         justifyContent: 'flex-end',
         alignItems: 'center',
-        textAlign: 'center',
+        textAlign: 'center'  as any,
         marginBottom: screenDimensions.width <= SCREEN_LIMITS.mobile? '15vh' : 'none',
-        position: 'relative',
+        position: 'relative'  as any,
     },
     categoryImage: {
         width: '50%',
@@ -41,7 +40,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
     },
     categoryUnderCard: {
         display: 'flex', 
-        flexDirection: 'column', 
+        flexDirection: 'column'  as any, 
         justifyContent: 'flex-end', 
         alignItems: 'center', 
         backgroundColor: colors.midGray,
@@ -50,7 +49,6 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
                 : screenDimensions.width <= SCREEN_LIMITS.tablet? '60%' 
                 : '65%',
         borderRadius: '5px',
-        // boxSizing: 'border-box',
         alignSelf: 'center',
         paddingBottom: '5%',
     },
@@ -59,6 +57,6 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         letterSpacing: screenDimensions.width <= SCREEN_LIMITS.tablet? '1.07px' : '1.29px',
         fontWeight: '900',
         color: colors.black,
-        textTransform: 'uppercase',
+        textTransform: 'uppercase'  as any,
     },
 }};

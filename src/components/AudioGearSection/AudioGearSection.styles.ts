@@ -16,9 +16,9 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
         marginBottom: '10vh',
         marginTop: '5vh',
         display: 'flex',
-        flexDirection: screenDimensions.width <= SCREEN_LIMITS.tablet? 'column' : 'row-reverse',
+        flexDirection: screenDimensions.width <= SCREEN_LIMITS.tablet? 'column' 
+                            : 'row-reverse'  as any,
         alignItems: 'center',
-        // boxSizing: 'border-box',
     },
     BGImage: {
         width: screenDimensions.width <= SCREEN_LIMITS.tablet? '100%' : '47.5%',
@@ -30,15 +30,14 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
         height: screenDimensions.width <= SCREEN_LIMITS.tablet? '47.5%' : '100%',
         borderRadius: '5px',
         display: 'flex',
-        flexDirection: 'column',
-        // boxSizing: 'border-box',
+        flexDirection: 'column'  as any,
     },
     BGTitle: {
         ...titleStyle(screenDimensions),
         marginBottom: '5%',
         width: screenDimensions.width <= SCREEN_LIMITS.mobile? '100%' : '80%',
         alignSelf: screenDimensions.width <= SCREEN_LIMITS.tablet? 'center' : '',
-        textAlign: screenDimensions.width <= SCREEN_LIMITS.tablet? 'center' : 'left',
+        textAlign: screenDimensions.width <= SCREEN_LIMITS.tablet? 'center' : 'left'  as any,
     },
     BGPrimaryText: {
         color: colors.primary,
@@ -46,6 +45,6 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
     BGBody: {
         ...textStyles.body,
         width: screenDimensions.width <= SCREEN_LIMITS.tablet? '100%' : '80%',
-        textAlign: screenDimensions.width <= SCREEN_LIMITS.tablet? 'center' : 'left',
+        textAlign: screenDimensions.width <= SCREEN_LIMITS.tablet? 'center' : 'left'  as any,
     }
 }}

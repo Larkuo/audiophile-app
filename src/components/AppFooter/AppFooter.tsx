@@ -1,4 +1,3 @@
-import React from 'react';
 import { styles } from './AppFooter.styles';
 import { useScreenDimensions } from '../../hooks/useScreenDimensions';
 

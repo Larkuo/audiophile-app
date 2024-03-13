@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { SCREEN_LIMITS } from '../../theme/Theme';
 import { useScreenDimensions } from '../../hooks/useScreenDimensions';
 import { styles } from './ZX9HomeSection.styles';

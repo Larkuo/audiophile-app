@@ -1,4 +1,3 @@
-import React from 'react';
 import { useScreenDimensions } from '../../hooks/useScreenDimensions';
 
 import BG_desktop from '../../assets/shared/desktop/image-best-gear.jpg';

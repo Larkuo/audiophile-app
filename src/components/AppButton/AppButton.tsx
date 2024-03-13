@@ -1,4 +1,3 @@
-import React from 'react';
 import { useHover } from '../../hooks/useHover';
 import { styles } from './AppButton.styles';
 import { colors } from '../../theme/Theme';

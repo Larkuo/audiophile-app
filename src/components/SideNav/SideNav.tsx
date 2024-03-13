@@ -1,4 +1,3 @@
-import React from 'react';
 import { styles } from './SideNav.styles';
 import AppNavLink from '../AppNavLink/AppNavLink';
 import { useScreenDimensions } from '../../hooks/useScreenDimensions';

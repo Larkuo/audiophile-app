@@ -8,7 +8,6 @@ export const styles= {
         flexDirection: 'row' as any,
         alignItems: 'center',
         justifyContent: 'space-between',
-        // boxSizing: 'border-box',
         backgroundColor: colors.midGray,
         paddingTop: '7.5px',
         paddingBottom: '7.5px',
@@ -24,14 +23,11 @@ export const styles= {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        // border: '1px solid black',
         MozUserSelect: 'none' as any,
         WebkitUserSelect: 'none' as any,
         msUserSelect: 'none' as any,
     },
-    icon: {
-
-    },
+    icon: {},
     input: {
         outline: 'none',
         border: 'none',
