@@ -1,4 +1,3 @@
-import React from 'react';
 import { styles } from './CategoryPage.styles';
 import { AppFooter, AppHeader, AudioGearSection, CategoriesCardGroup, CategoryItemCard } from '../../components';
 import { useScreenDimensions } from '../../hooks/useScreenDimensions';

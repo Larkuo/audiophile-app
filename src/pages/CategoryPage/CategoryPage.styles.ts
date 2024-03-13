@@ -16,25 +16,23 @@ const titleStyles = (screenDimensions: ScreenDimensionsProps) => {return(
 export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
     categoryPage: {
         width: '100%',
-        // boxSizing: 'border-box',
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'column'  as any,
         alignItems: 'center',
     },
     pageHeader: {
         width: '100%',
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'column'  as any,
         backgroundColor: colors.black,
         paddingLeft: screenDimensions.width > SCREEN_LIMITS.tablet? '10%':'5%',
         paddingRight: screenDimensions.width > SCREEN_LIMITS.tablet? '10%':'5%',
         paddingBottom: '2.5%',
         color: colors.white,
-        // boxSizing: 'border-box',
     },
     pageTitle: {
         ...titleStyles(screenDimensions),
-        textAlign: 'center',
+        textAlign: 'center'  as any,
         paddingTop: '2.5%',
     }
 }};
