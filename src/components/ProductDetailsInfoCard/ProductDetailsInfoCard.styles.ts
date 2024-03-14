@@ -43,10 +43,9 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
                     : screenDimensions.width <= SCREEN_LIMITS.tablet
                     ? '45%' : '47.5%',
         height: screenDimensions.width <= SCREEN_LIMITS.mobile? '52%' : 'auto',
-        textAlign: screenDimensions.width <= SCREEN_LIMITS.mobile? 'center' : 'left' as any,
         display: 'flex',
         flexDirection: 'column' as any,
-        alignItems: screenDimensions.width <= SCREEN_LIMITS.mobile? 'center' : 'flex-start',
+        alignItems: 'flex-start',
     },
     newProduct: {
         fontSize: screenDimensions.width <= SCREEN_LIMITS.mobile
@@ -64,6 +63,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
     },
     productDescription: {
         ...textStyles.body,
+        color: colors.borderGray,
         marginTop: '5%',
         marginBottom: '5%',
         width: screenDimensions.width <= SCREEN_LIMITS.tablet? '100%' : '60%',

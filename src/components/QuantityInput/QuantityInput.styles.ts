@@ -26,6 +26,7 @@ export const styles= {
         MozUserSelect: 'none' as any,
         WebkitUserSelect: 'none' as any,
         msUserSelect: 'none' as any,
+        color: colors.borderGray,
     },
     icon: {},
     input: {

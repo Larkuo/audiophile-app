@@ -17,6 +17,7 @@ export interface CategoryItemProps{
     new: boolean;
     price: number;
     description: string;
+    features: string;
     includes: {
         quantity: number
         item: string
