@@ -7,6 +7,7 @@ import {
     AppFooter, 
     AppHeader, 
     CategoriesCardGroup, 
+    OtherProductsGroup, 
     ProductDetailsInfoCard,
     ProductFeaturesRow
 } from '../../components';
@@ -32,7 +33,7 @@ export function ProductDetailsPage() {
             <ProductDetailsInfoCard />
             <ProductFeaturesRow />
             <AdditionalProductImages />
-            
+            <OtherProductsGroup />
             <CategoriesCardGroup />
             <AppFooter />
         </div>

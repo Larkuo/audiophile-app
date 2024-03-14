@@ -43,6 +43,10 @@ import xx59_gallery_third_mobile from '../../assets/product-xx59-headphones/mobi
 import xx59_gallery_third_tablet from '../../assets/product-xx59-headphones/tablet/image-gallery-3.jpg';
 import xx59_gallery_third_desktop from '../../assets/product-xx59-headphones/desktop/image-gallery-3.jpg';
 
+import xx59_other_mobile from '../../assets/shared/mobile/image-xx59-headphones.jpg';
+import xx59_other_tablet from '../../assets/shared/tablet/image-xx59-headphones.jpg';
+import xx59_other_desktop from '../../assets/shared/desktop/image-xx59-headphones.jpg';
+
 /** ----------------------------------------------------------------------------------------- **/
 
 import xx99_mark_one_mobile from '../../assets/product-xx99-mark-one-headphones/mobile/image-product.jpg';
@@ -64,6 +68,10 @@ import xx99_mark_one_gallery_second_desktop from '../../assets/product-xx99-mark
 import xx99_mark_one_gallery_third_mobile from '../../assets/product-xx99-mark-one-headphones/mobile/image-gallery-3.jpg';
 import xx99_mark_one_gallery_third_tablet from '../../assets/product-xx99-mark-one-headphones/tablet/image-gallery-3.jpg';
 import xx99_mark_one_gallery_third_desktop from '../../assets/product-xx99-mark-one-headphones/desktop/image-gallery-3.jpg';
+
+import xx99_mark_one_other_mobile from '../../assets/shared/mobile/image-xx99-mark-one-headphones.jpg';
+import xx99_mark_one_other_tablet from '../../assets/shared/tablet/image-xx99-mark-one-headphones.jpg';
+import xx99_mark_one_other_desktop from '../../assets/shared/desktop/image-xx99-mark-one-headphones.jpg';
 
 /** ----------------------------------------------------------------------------------------- **/
 
@@ -87,6 +95,10 @@ import xx99_mark_two_gallery_third_mobile from '../../assets/product-xx99-mark-t
 import xx99_mark_two_gallery_third_tablet from '../../assets/product-xx99-mark-two-headphones/tablet/image-gallery-3.jpg';
 import xx99_mark_two_gallery_third_desktop from '../../assets/product-xx99-mark-two-headphones/desktop/image-gallery-3.jpg';
 
+import xx99_mark_two_other_mobile from '../../assets/shared/mobile/image-xx99-mark-two-headphones.jpg';
+import xx99_mark_two_other_tablet from '../../assets/shared/tablet/image-xx99-mark-two-headphones.jpg';
+import xx99_mark_two_other_desktop from '../../assets/shared/desktop/image-xx99-mark-two-headphones.jpg';
+
 /** ----------------------------------------------------------------------------------------- **/
 
 import zx7_mobile from '../../assets/product-zx7-speaker/mobile/image-product.jpg';
@@ -109,6 +121,10 @@ import zx7_gallery_third_mobile from '../../assets/product-zx7-speaker/mobile/im
 import zx7_gallery_third_tablet from '../../assets/product-zx7-speaker/tablet/image-gallery-3.jpg';
 import zx7_gallery_third_desktop from '../../assets/product-zx7-speaker/desktop/image-gallery-3.jpg';
 
+import zx7_other_mobile from '../../assets/shared/mobile/image-zx7-speaker.jpg';
+import zx7_other_tablet from '../../assets/shared/tablet/image-zx7-speaker.jpg';
+import zx7_other_desktop from '../../assets/shared/desktop/image-zx7-speaker.jpg';
+
 /** ----------------------------------------------------------------------------------------- **/
 
 import zx9_mobile from '../../assets/product-zx9-speaker/mobile/image-product.jpg';
@@ -130,6 +146,10 @@ import zx9_gallery_second_desktop from '../../assets/product-zx9-speaker/desktop
 import zx9_gallery_third_mobile from '../../assets/product-zx9-speaker/mobile/image-gallery-3.jpg';
 import zx9_gallery_third_tablet from '../../assets/product-zx9-speaker/tablet/image-gallery-3.jpg';
 import zx9_gallery_third_desktop from '../../assets/product-zx9-speaker/desktop/image-gallery-3.jpg';
+
+import zx9_other_mobile from '../../assets/shared/mobile/image-zx9-speaker.jpg';
+import zx9_other_tablet from '../../assets/shared/tablet/image-zx9-speaker.jpg';
+import zx9_other_desktop from '../../assets/shared/desktop/image-zx9-speaker.jpg';
 
 /** ----------------------------------------------------------------------------------------- **/
 
@@ -279,4 +299,27 @@ export const ProductDetailsAssets = (screenDimensions: ScreenDimensionsProps) =>
                 ? zx9_gallery_third_tablet : zx9_gallery_third_desktop,
         },
     },
+});
+
+export const ProductDetailsOthersImages = (screenDimensions: ScreenDimensionsProps) => <any>({
+    xx59_headphones: screenDimensions.width <= SCREEN_LIMITS.mobile
+                    ? xx59_other_mobile
+                    : screenDimensions.width <= SCREEN_LIMITS.tablet
+                    ? xx59_other_tablet : xx59_other_desktop,
+    xx99_mark_one_headphones: screenDimensions.width <= SCREEN_LIMITS.mobile
+                    ? xx99_mark_one_other_mobile
+                    : screenDimensions.width <= SCREEN_LIMITS.tablet
+                    ? xx99_mark_one_other_tablet : xx99_mark_one_other_desktop,
+    xx99_mark_two_headphones: screenDimensions.width <= SCREEN_LIMITS.mobile
+                    ? xx99_mark_two_other_mobile
+                    : screenDimensions.width <= SCREEN_LIMITS.tablet
+                    ? xx99_mark_two_other_tablet : xx99_mark_two_other_desktop,
+    zx7_speaker: screenDimensions.width <= SCREEN_LIMITS.mobile
+                    ? zx7_other_mobile
+                    : screenDimensions.width <= SCREEN_LIMITS.tablet
+                    ? zx7_other_tablet : zx7_other_desktop,
+    zx9_speaker: screenDimensions.width <= SCREEN_LIMITS.mobile
+                    ? zx9_other_mobile
+                    : screenDimensions.width <= SCREEN_LIMITS.tablet
+                    ? zx9_other_tablet : zx9_other_desktop,
 });

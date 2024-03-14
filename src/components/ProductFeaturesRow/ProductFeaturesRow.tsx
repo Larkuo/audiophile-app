@@ -9,9 +9,6 @@ export function ProductFeaturesRow() {
     const { screenDimensions } = useScreenDimensions();
     const { productDetails } = useProductDetails(productSlug || '');
 
-    // const tempSplit = productDetails.features.split('\n\n');
-    // console.log({tempSplit});
-
     return (
         <div className="product-features-row" style={styles(screenDimensions).productFeaturesRow}>
             <div className="feature-section product-description" style={styles(screenDimensions).featuresSection}>

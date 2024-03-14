@@ -14,3 +14,4 @@ export * from './QuantityInput/QuantityInput';
 export * from './ProductDetailsInfoCard/ProductDetailsInfoCard';
 export * from './ProductFeaturesRow/ProductFeaturesRow';
 export * from './AdditionalProductImages/AdditionalProductImages';
+export * from './OtherProductsGroup/OtherProductsGroup';
