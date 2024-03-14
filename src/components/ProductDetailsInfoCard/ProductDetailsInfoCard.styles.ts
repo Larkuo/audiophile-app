@@ -23,7 +23,6 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
         flexDirection: screenDimensions.width <= SCREEN_LIMITS.mobile? 'column' : 'row' as any,
         justifyContent: 'space-between',
         alignItems: 'center',
-        // backgroundColor: colors.hoverPrimary,
     },
     productImage: {
         width: screenDimensions.width <= SCREEN_LIMITS.mobile? '100%' 
@@ -74,6 +73,6 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
         flexDirection: 'row' as any,
         justifyContent: 'space-between',
         alignItems: 'center',
-        marginTop: '5%',
+        marginTop: screenDimensions.width <= SCREEN_LIMITS.tablet? '15%' : '5%',
     },
 }};

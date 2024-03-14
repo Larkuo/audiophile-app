@@ -33,7 +33,6 @@ export function ProductDetailsPage() {
             <ProductFeaturesRow />
             <AdditionalProductImages />
             
-
             <CategoriesCardGroup />
             <AppFooter />
         </div>
