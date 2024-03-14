@@ -39,6 +39,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
         width: '100%',
         paddingBottom: '10px',
         paddingTop: '10px',
+        color: colors.borderGray,
     },
     boxItemList: {
         width: screenDimensions.width <= SCREEN_LIMITS.mobile? '100%' 

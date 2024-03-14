@@ -3,6 +3,7 @@ import { styles } from './ProductDetailsPage.styles';
 import { useScreenDimensions } from '../../hooks/useScreenDimensions';
 import { useAppNavigation } from '../../hooks/useAppNavigation';
 import { 
+    AdditionalProductImages,
     AppFooter, 
     AppHeader, 
     CategoriesCardGroup, 
@@ -30,6 +31,9 @@ export function ProductDetailsPage() {
             </div>           
             <ProductDetailsInfoCard />
             <ProductFeaturesRow />
+            <AdditionalProductImages />
+            
+
             <CategoriesCardGroup />
             <AppFooter />
         </div>
