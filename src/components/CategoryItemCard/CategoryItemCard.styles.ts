@@ -10,25 +10,29 @@ const productNameStyle = (screenDimensions: ScreenDimensionsProps) => screenDime
 export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
     categoryItemCard: {
         width: '80%',
-        height: screenDimensions.width <= SCREEN_LIMITS.tablet? '100vh' : '75vh',
-        marginTop: '3%',
-        marginBottom: '3%',
+        height: screenDimensions.width <= SCREEN_LIMITS.mobile? '85vh' 
+                    : screenDimensions.width <= SCREEN_LIMITS.tablet? '75vh' 
+                    : '65vh',
         display: 'flex',
         flexDirection: screenDimensions.width <= SCREEN_LIMITS.tablet? 'column' : 'row'  as any,
-        paddingTop: '5%',
-        paddingBottom: screenDimensions.width <= SCREEN_LIMITS.mobile? '10%' : '5%',
+        paddingTop: '3.5%',
+        paddingBottom: screenDimensions.width <= SCREEN_LIMITS.mobile? '10%' : '3.5%',
+        paddingLeft: '5%',
+        paddingRight: '5%',
         justifyContent: 'space-between',
         alignItems: 'center',
     },
     altCategoryItemCard: {
         width: '80%',
-        height: screenDimensions.width <= SCREEN_LIMITS.tablet? '100vh' : '75vh',
-        marginTop: '3%',
-        marginBottom: '3%',
+        height: screenDimensions.width <= SCREEN_LIMITS.mobile? '85vh' 
+                    : screenDimensions.width <= SCREEN_LIMITS.tablet? '75vh' 
+                    : '65vh',
         display: 'flex',
         flexDirection: screenDimensions.width <= SCREEN_LIMITS.tablet? 'column' : 'row-reverse'  as any,
-        paddingTop: '5%',
-        paddingBottom: '5%',
+        paddingTop: '3.5%',
+        paddingBottom: '3.5%',
+        paddingLeft: '5%',
+        paddingRight: '5%',
         justifyContent: 'space-between',
         alignItems: 'center',
     },
