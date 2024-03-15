@@ -11,12 +11,19 @@ import {
     ProductDetailsInfoCard,
     ProductFeaturesRow
 } from '../../components';
+import { useEffect, useState } from 'react';
 
 export function ProductDetailsPage() {
     const navigate = useNavigate();    
 
     const { screenDimensions } = useScreenDimensions();
     const { goBack } = useAppNavigation(navigate);
+
+    const [cartQuantity, setCartQuantity] = useState(1);
+
+    useEffect(() => {
+        setCartQuantity(1);
+    },[]);
 
     return (
         <div className='product-details-page' style={styles(screenDimensions).productPage}>
@@ -30,7 +37,10 @@ export function ProductDetailsPage() {
                     onClick={goBack}
                 >Go Back</span>
             </div>           
-            <ProductDetailsInfoCard />
+            <ProductDetailsInfoCard
+                cartQuantity={cartQuantity}
+                setCartQuantity={setCartQuantity}
+            />
             <ProductFeaturesRow />
             <AdditionalProductImages />
             <OtherProductsGroup />

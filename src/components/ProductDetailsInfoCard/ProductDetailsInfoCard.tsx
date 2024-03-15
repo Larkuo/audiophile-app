@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useScreenDimensions } from '../../hooks/useScreenDimensions';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAppNavigation } from '../../hooks/useAppNavigation';
@@ -7,22 +6,28 @@ import { useProductDetails } from '../../hooks/useProductDetails';
 import { styles } from './ProductDetailsInfoCard.styles';
 import { AppButton } from '../AppButton/AppButton';
 import { QuantityInput } from '..';
+import { useCartDetails } from '../../hooks/useCartDetails';
 
-export function ProductDetailsInfoCard() {
+export function ProductDetailsInfoCard({
+    cartQuantity,
+    setCartQuantity,
+}:{
+    cartQuantity: number,
+    setCartQuantity: React.Dispatch<React.SetStateAction<number>>;
+}) {
     const { productSlug } = useParams();
     const navigate = useNavigate();
     
-    const { screenDimensions } = useScreenDimensions();
     const {} = useAppNavigation(navigate);
+    const { screenDimensions } = useScreenDimensions();
     const { productDetails } = useProductDetails(productSlug || '');
+    const {addCartItem} = useCartDetails();
 
     const cardAssets = productSlug
         ? productSlug.includes('mark')
             ? ProductDetailsAssets(screenDimensions)[String(productSlug.split('-').join('_'))]
             : ProductDetailsAssets(screenDimensions)[productSlug.replace('-', '_')]
         : ProductDetailsAssets(screenDimensions).yx1;
-
-    const [cartQuantity, setCartQuantity] = useState(1);
 
     return (
         <div className='product-details-info-card' style={styles(screenDimensions).productDetailsInfoCard}>
@@ -54,7 +59,12 @@ export function ProductDetailsInfoCard() {
                         label='add to cart' 
                         mode='primary' 
                         stylesOverride={{width: '55%', height: '100%'}}
-                        onClick={() => {}}
+                        onClick={() => addCartItem({
+                            slug: productDetails.slug,
+                            name: productDetails.name,
+                            price: productDetails.price,
+                            quantity: cartQuantity,
+                        })}
                     />
                 </div>
             </div>

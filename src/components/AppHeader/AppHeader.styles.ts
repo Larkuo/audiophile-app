@@ -49,8 +49,8 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         width: 'auto',
     },
     countBubble: {
-        color: colors.black,
-        backgroundColor: colors.white,
+        color: colors.white,
+        backgroundColor: colors.primary,
         borderRadius: '30px',
         position: 'absolute'  as any,
         zIndex: 5,
