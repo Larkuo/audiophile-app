@@ -7,13 +7,13 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
         display: 'flex',
         flexDirection: 'column' as any,
         alignItems: 'center',
+        position: 'relative' as any,
     },
     pageHeader: {
         backgroundColor: colors.black,
         width: '100%',
         paddingLeft: screenDimensions.width > SCREEN_LIMITS.tablet? '10%':'5%',
         paddingRight: screenDimensions.width > SCREEN_LIMITS.tablet? '10%':'5%',
-        paddingBottom: '2.5%',
     },
     goBackRow: {
         width: '100%',

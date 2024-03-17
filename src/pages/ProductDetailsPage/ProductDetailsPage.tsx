@@ -9,15 +9,18 @@ import {
     CategoriesCardGroup, 
     OtherProductsGroup, 
     ProductDetailsInfoCard,
-    ProductFeaturesRow
+    ProductFeaturesRow,
+    CartModal
 } from '../../components';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { CartContext } from '../../context/CartContext';
 
 export function ProductDetailsPage() {
     const navigate = useNavigate();    
 
     const { screenDimensions } = useScreenDimensions();
     const { goBack } = useAppNavigation(navigate);
+    const { showCartModal } = useContext(CartContext);
 
     const [cartQuantity, setCartQuantity] = useState(1);
 
@@ -46,6 +49,7 @@ export function ProductDetailsPage() {
             <OtherProductsGroup />
             <CategoriesCardGroup />
             <AppFooter />
+            {showCartModal && <CartModal />}
         </div>
     );
 }

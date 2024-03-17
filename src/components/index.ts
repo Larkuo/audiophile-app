@@ -1,5 +1,5 @@
 export * from './AppHeader/AppHeader';
-export * from "./AppNavLink/AppNavLink";
+export * from './AppNavLink/AppNavLink';
 export * from './AppButton/AppButton';
 export * from './HomePageHero/HomePageHero';
 export * from './CategoriesCardGroup/CategoriesCardGroup';
@@ -15,3 +15,4 @@ export * from './ProductDetailsInfoCard/ProductDetailsInfoCard';
 export * from './ProductFeaturesRow/ProductFeaturesRow';
 export * from './AdditionalProductImages/AdditionalProductImages';
 export * from './OtherProductsGroup/OtherProductsGroup';
+export * from './CartModal/CartModal';

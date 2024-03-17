@@ -4,14 +4,13 @@ import { SCREEN_LIMITS, colors } from '../../theme/Theme';
 export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
     appHeader: {
         width: '100%',
-        height: '8vh',
+        height: '10vh',
         position: 'relative'  as any,
         color: colors.white,
         display: 'flex',
         flexDirection: 'row'  as any,
         justifyContent: 'space-between',
         alignItems: 'center',
-        paddingTop: '2.5%',
     },
     menuLogoGroup: {
         width: screenDimensions.width <= SCREEN_LIMITS.mobile? '70%':'45%',
@@ -35,6 +34,8 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         fontSize: '30px',
         display: 'flex',
         flexDirection: 'column'  as any,
+        border: 'none',
+        backgroundColor: 'transparent',
     },
     navBar: {
         width: '70%',
@@ -52,7 +53,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
     countBubble: {
         color: colors.white,
         backgroundColor: colors.primary,
-        borderRadius: '30px',
+        borderRadius: '20px',
         position: 'absolute'  as any,
         zIndex: 5,
         fontSize: '12px',
@@ -60,6 +61,9 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         padding: '2px',
         alignSelf: 'flex-end',
         marginTop: '-10px',
-        marginRight: '-8px',
+        marginRight: '-10px',
+        width: '20px',
+        height: '20px',
+        textAlign: 'center' as any,
     }
 }};

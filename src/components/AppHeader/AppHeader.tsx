@@ -31,20 +31,20 @@ export function AppHeader({
   }
 
   function CartIcon(){
-    const { cartItems, toggleCartModal } = useContext(CartContext);
+    const { cartItems, toggleCartModal, showCartModal } = useContext(CartContext);
 
     return(
-      <div 
+      <button 
         className="logo-link" style={styles(screenDimensions).logoLink}
         onClick={toggleCartModal}
       >
-        {cartItems.length > 0 && 
+        {!showCartModal && cartItems.length > 0 && 
           <div className='cart-count-bubble' style={styles(screenDimensions).countBubble}>
             {cartItems.length}
           </div>
         }
         <img src={CartSvg} style={styles(screenDimensions).cartIcon}/>
-      </div>
+      </button>
     );
   }
   
