@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { styles } from './AppHeader.styles';
@@ -12,8 +12,7 @@ import { SCREEN_LIMITS, colors } from '../../theme/Theme';
 import SideNav from '../SideNav/SideNav';
 import { useScreenDimensions } from '../../hooks/useScreenDimensions';
 import { APPNAV_DATA, AppNavDataProps } from '../../navigation/AppNavbarData';
-import { useCartDetails } from '../../hooks/useCartDetails';
-import { LOCAL_STORAGE_CONSTS } from '../../resources/LocalStorageConstants';
+import { CartContext } from '../../context/CartContext';
 
 
 export function AppHeader({
@@ -31,28 +30,21 @@ export function AppHeader({
     borderBottom: bottomBorder? `1px solid ${colors.borderGray}` : 'none',
   }
 
-  const {cartCount, emptyCart} = useCartDetails();
+  function CartIcon(){
+    const { cartItems, toggleCartModal } = useContext(CartContext);
 
-  function CartIcon({
-    cartCount, 
-    emptyCart
-  }:{
-    cartCount: number;
-    emptyCart: () => void;
-  }){
     return(
-      <Link 
-          to={'/'} 
-          className="logo-link" style={styles(screenDimensions).logoLink}
-          onClick={emptyCart}
-        >
-          {cartCount > 0 && 
-            <div className='cart-count-bubble' style={styles(screenDimensions).countBubble}>{
-              localStorage.getItem(LOCAL_STORAGE_CONSTS.cartCount)
-            }</div>
-          }
-          <img src={CartSvg} style={styles(screenDimensions).cartIcon}/>
-      </Link>
+      <div 
+        className="logo-link" style={styles(screenDimensions).logoLink}
+        onClick={toggleCartModal}
+      >
+        {cartItems.length > 0 && 
+          <div className='cart-count-bubble' style={styles(screenDimensions).countBubble}>
+            {cartItems.length}
+          </div>
+        }
+        <img src={CartSvg} style={styles(screenDimensions).cartIcon}/>
+      </div>
     );
   }
   
@@ -69,7 +61,7 @@ export function AppHeader({
         </Link>
       </div>
 
-      <CartIcon cartCount={cartCount} emptyCart={emptyCart}/>
+      <CartIcon />
     </div>
     </>
   ):(
@@ -88,7 +80,7 @@ export function AppHeader({
         )}
       </div>
 
-      <CartIcon cartCount={cartCount} emptyCart={emptyCart}/>
+      <CartIcon />
     </div>
   );
 }

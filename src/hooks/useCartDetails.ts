@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { LOCAL_STORAGE_CONSTS } from "../resources/LocalStorageConstants";
+import { CartContext } from "../context/CartContext";
 
 export interface CartItemInterface{
     slug: string;
@@ -17,7 +18,7 @@ export function useCartDetails():{
     deleteCartItem: (itemSlug: string) => void;
     emptyCart: () => void;
 }{
-    const [cartItems, setCartItems] = useState<CartItemInterface[]>([]);
+    const { cartItems, setCartItems } = useContext(CartContext);
     const [cartTotal, setCartTotal] = useState(0);
     const [cartCount, setCartCount] = useState(0);
     const [refresh, setRefresh] = useState(false);
@@ -32,22 +33,14 @@ export function useCartDetails():{
         const cartListTotal = Number(localStorage.getItem(LOCAL_STORAGE_CONSTS.cartTotal));
 
         if(cartList.length > 0){
-            console.log('inside get details if');
             setCartItems(cartList);
             setCartCount(cartListCount);
             setCartTotal(cartListTotal);
         }else{
-            console.log('inside get details else');
             setCartItems([]);
             setCartCount(0);
             setCartTotal(0);
         }
-
-        // console.log('Successfully got cart details: ', {
-        //     cartList, cartItems,
-        //     cartListCount, cartCount,
-        //     cartTotal, cartListTotal,
-        // });
     }
 
     function updateCart(cartList: CartItemInterface[]){
@@ -101,13 +94,7 @@ export function useCartDetails():{
     }
 
     useEffect(() => {
-        console.log('use cart details - useEffect running');
         getCartDetails();
-        console.log('Current Cart Details: ', {
-            cartItems, 
-            cartCount, 
-            cartTotal,
-        });
     },[refresh, cartCount, cartTotal]);
 
     return{
