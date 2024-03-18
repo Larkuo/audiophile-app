@@ -3,7 +3,8 @@ import {
     AppButton, 
     AppFooter, 
     AppHeader, 
-    CartItem 
+    CartItem, 
+    CheckoutFormSection,
 } from "../../components";
 import { useScreenDimensions } from "../../hooks/useScreenDimensions";
 import { styles } from "./CheckoutPage.styles";
@@ -11,6 +12,7 @@ import { useAppNavigation } from "../../hooks/useAppNavigation";
 import { useHover } from "../../hooks/useHover";
 import { colors } from "../../theme/Theme";
 import {  useCartDetails } from "../../hooks/useCartDetails";
+import { FORM_SECTIONS_DATA } from "./FormSectionsData";
 
 export function CheckoutPage() {
     const navigate = useNavigate();    
@@ -46,12 +48,22 @@ export function CheckoutPage() {
             </div>
             <div className="checkout-page-content" style={styles(screenDimensions).checkoutPageContent}>
                 <div className="checkout-form" style={styles(screenDimensions).checkoutForm}>
-                    form
+                    <div className="form-header" style={styles(screenDimensions).formHeader}>
+                        <h3 className="form-title" style={styles(screenDimensions).formTitle}>CHECKOUT</h3>
+                    </div>
+                    {FORM_SECTIONS_DATA.map((section) => 
+                        <CheckoutFormSection 
+                            key={section.title}
+                            name={section.name}
+                            title={section.title}
+                            inputRows={section.inputRows}
+                        />
+                    )}
                 </div>
                 <div className="checkout-cart" style={styles(screenDimensions).checkoutCart}>
                     <div className="checkout-cart-header" style={styles(screenDimensions).cartHeader}>
-                        <h2 className="checkout-cart-title" style={styles(screenDimensions).cartTitle}
-                        >SUMMARY</h2>
+                        <h6 className="checkout-cart-title" style={styles(screenDimensions).cartTitle}
+                        >SUMMARY</h6>
                     </div>
                     {cartCount > 0 && cartItems.map((cartItem) => 
                         <CartItem 

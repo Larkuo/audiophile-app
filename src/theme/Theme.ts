@@ -11,6 +11,7 @@ export const colors = {
     hoverPrimary: '#FBAF85',
     transparent: 'transparent',
     checkoutBackground: '#CFCFCF',
+    error: '#CD2C2C',
     filterPrimary: ' invert(53%) sepia(95%) saturate(322%) hue-rotate(336deg) brightness(87%) contrast(94%)',
 }
 

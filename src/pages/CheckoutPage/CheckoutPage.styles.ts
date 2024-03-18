@@ -12,7 +12,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
         flexDirection: 'column'  as any,
         alignItems: 'center',
         backgroundColor: screenDimensions.width <= SCREEN_LIMITS.tablet? colors.white 
-                : colors.checkoutBackground,
+                : colors.midGray,
     },
     pageHeader: {
         backgroundColor: colors.black,
@@ -22,8 +22,8 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
     },
     goBackRow: {
         width: '100%',
-        paddingLeft: '5%',
-        paddingRight: '5%',
+        paddingLeft: screenDimensions.width <= SCREEN_LIMITS.tablet? '10%' : '5%',
+        paddingRight: screenDimensions.width <= SCREEN_LIMITS.tablet? '10%' : '5%',
         paddingTop:  screenDimensions.width <= SCREEN_LIMITS.mobile? '5%' : '1.5%',
         paddingBottom:  screenDimensions.width <= SCREEN_LIMITS.mobile? '2%' : '0.5%',
     },
@@ -49,6 +49,21 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
         flexDirection: 'column'  as any,
         justifyContent: 'center',
         alignItems: 'center',
+        paddingTop: screenDimensions.width <= SCREEN_LIMITS.tablet? '1.5%' : '30px',
+        paddingBottom: screenDimensions.width <= SCREEN_LIMITS.tablet? '0px' : '20px',
+    },
+    formHeader: {
+        display: 'flex',
+        flexDirection: 'row'  as any,
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        width: screenDimensions.width <= SCREEN_LIMITS.tablet? '100%' : '90%',
+        marginBottom: '20px',
+    },
+    formTitle: {
+        ...textStyles.h3,
+        padding: '0',
+        margin: '0',
     },
     checkoutCart: {
         width: screenDimensions.width <= SCREEN_LIMITS.tablet? '100%' : '27%',
@@ -72,6 +87,8 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
     cartTitle: {
         fontSize: '18px',
         letterSpacing: '1.3px',
+        padding: '0',
+        margin: '0',
     },
     cartFooterRow: {
         display: 'flex',

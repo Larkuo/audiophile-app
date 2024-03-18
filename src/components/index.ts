@@ -17,3 +17,5 @@ export * from './AdditionalProductImages/AdditionalProductImages';
 export * from './OtherProductsGroup/OtherProductsGroup';
 export * from './CartModal/CartModal';
 export * from './CartItem/CartItem';
+export * from './CheckoutFormSection/CheckoutFormSection';
+export * from './TextInput/TextInput';
