@@ -1,13 +1,16 @@
 import { useNavigate } from "react-router-dom";
-import { AppButton, AppFooter, AppHeader } from "../../components";
+import { 
+    AppButton, 
+    AppFooter, 
+    AppHeader, 
+    CartItem 
+} from "../../components";
 import { useScreenDimensions } from "../../hooks/useScreenDimensions";
 import { styles } from "./CheckoutPage.styles";
 import { useAppNavigation } from "../../hooks/useAppNavigation";
 import { useHover } from "../../hooks/useHover";
 import { colors } from "../../theme/Theme";
-import { CartItemInterface, useCartDetails } from "../../hooks/useCartDetails";
-import { CartItemAssets } from "../../components/CartModal/CardAssets";
-
+import {  useCartDetails } from "../../hooks/useCartDetails";
 
 export function CheckoutPage() {
     const navigate = useNavigate();    
@@ -23,41 +26,6 @@ export function CheckoutPage() {
         cartTax,
         cartGrandTotal,
     } = useCartDetails();
-
-
-    function CheckoutCartItem({cartItem}:{cartItem: CartItemInterface}){ 
-        const cartItemImage = cartItem.slug.includes('mark')
-                    ? CartItemAssets[String(cartItem.slug.split('-').join('_'))]
-                    : CartItemAssets[cartItem.slug.replace('-', '_')];       
-        return(
-            <div className="cart-item" style={styles(screenDimensions).cartItemCard}>
-                <div className="cart-item-info" style={styles(screenDimensions).cartItemInfo}>
-                    <img 
-                        src={cartItemImage}
-                        alt={`cart-item-${cartItem.slug}`}
-                        style={styles(screenDimensions).cartItemImage}
-                    />
-                    <div 
-                        className="cart-item-text-container" 
-                        style={styles(screenDimensions).cartItemTextContainer}
-                    >
-                        <span 
-                            className="cart-item-name"
-                            style={styles(screenDimensions).cartItemName}
-                        >{cartItem.name}</span>
-                        <span 
-                            className="cart-item-price"
-                            style={styles(screenDimensions).cartItemPrice}
-                        >$ {cartItem.price}</span>
-                    </div>
-                </div>
-                <span 
-                    className="cart-item-quantity"
-                    style={styles(screenDimensions).cartItemPrice}
-                >x{cartItem.quantity}</span>
-            </div>
-        );
-    }
 
     return (
         <div className="checkout-page" style={styles(screenDimensions).checkoutPage}>
@@ -86,7 +54,11 @@ export function CheckoutPage() {
                         >SUMMARY</h2>
                     </div>
                     {cartCount > 0 && cartItems.map((cartItem) => 
-                        <CheckoutCartItem key={cartItem.slug} cartItem={cartItem} />
+                        <CartItem 
+                            key={cartItem.slug} 
+                            cartItem={cartItem} 
+                            isCheckout={true}
+                        />
                     )}
                     <div className="checkout-cart-footer-row" style={styles(screenDimensions).cartFooterRow}>
                         <span className="checkout-cart-label" style={styles(screenDimensions).checkoutCartLabel}

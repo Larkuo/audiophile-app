@@ -16,3 +16,4 @@ export * from './ProductFeaturesRow/ProductFeaturesRow';
 export * from './AdditionalProductImages/AdditionalProductImages';
 export * from './OtherProductsGroup/OtherProductsGroup';
 export * from './CartModal/CartModal';
+export * from './CartItem/CartItem';

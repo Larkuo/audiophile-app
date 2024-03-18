@@ -1,11 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { 
-    AppButton, 
-    QuantityInput 
-} from "..";
-import { CartItemInterface, useCartDetails } from "../../hooks/useCartDetails";
+import {AppButton, CartItem} from "..";
+import { useCartDetails } from "../../hooks/useCartDetails";
 import { useScreenDimensions } from "../../hooks/useScreenDimensions";
-import { CartItemAssets } from "./CardAssets";
 import { styles } from "./CartModal.styles";
 import { useAppNavigation } from "../../hooks/useAppNavigation";
 
@@ -19,46 +15,7 @@ export function CartModal() {
         cartTotal, 
         cartItems,
         emptyCart,
-        updateCartItem,
     } = useCartDetails();
-
-    function CartItem({cartItem}:{cartItem: CartItemInterface}){ 
-        const cartItemImage = cartItem.slug.includes('mark')
-                    ? CartItemAssets[String(cartItem.slug.split('-').join('_'))]
-                    : CartItemAssets[cartItem.slug.replace('-', '_')];       
-        return(
-            <div className="cart-item" style={styles(screenDimensions).cartItemCard}>
-                <div className="cart-item-info" style={styles(screenDimensions).cartItemInfo}>
-                    <img 
-                        src={cartItemImage}
-                        alt={`cart-item-${cartItem.slug}`}
-                        style={styles(screenDimensions).cartItemImage}
-                    />
-                    <div 
-                        className="cart-item-text-container" 
-                        style={styles(screenDimensions).cartItemTextContainer}
-                    >
-                        <span 
-                            className="cart-item-name"
-                            style={styles(screenDimensions).cartItemName}
-                        >{cartItem.name}</span>
-                        <span 
-                            className="cart-item-price"
-                            style={styles(screenDimensions).cartItemPrice}
-                        >$ {cartItem.price}</span>
-                    </div>
-                </div>
-                <QuantityInput 
-                    value={cartItem.quantity} 
-                    onChangeQuantity={(value: number) => 
-                        updateCartItem(cartItem.slug, value)
-                    } 
-                    minQuantity={0}
-                    stylesOverride={styles(screenDimensions).cartItemQuantityInput}
-                />
-            </div>
-        );
-    }
 
     return (
         <div className="cart-modal" style={styles(screenDimensions).cartModal}>

@@ -73,43 +73,6 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
         fontSize: '18px',
         letterSpacing: '1.3px',
     },
-    cartItemCard: {
-        display: 'flex',
-        flexDirection: 'row'  as any,
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: screenDimensions.width <= SCREEN_LIMITS.tablet? '100%' : '90%',
-        marginBottom: '20px',
-    },
-    cartItemInfo: {
-        display: 'flex',
-        flexDirection: 'row'  as any,
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        width: '70%',
-    },
-    cartItemImage: {
-        width: '65px',
-        height: '65px',
-        borderRadius: '5px',
-        marginRight: '10px',
-    },
-    cartItemTextContainer: {
-        display: 'flex',
-        flexDirection: 'column'  as any,
-        justifyContent: 'center',
-        alignItems: 'flex-start',
-    },
-    cartItemName: {
-        fontSize: '15px',
-        lineHeight: '25px',
-        color: colors.black,
-    },
-    cartItemPrice: {
-        fontSize: '14px',
-        lineHeight: '25px',
-        color: colors.borderGray,
-    },
     cartFooterRow: {
         display: 'flex',
         flexDirection: 'row'  as any,

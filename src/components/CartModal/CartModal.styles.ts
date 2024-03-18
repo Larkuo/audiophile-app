@@ -61,48 +61,6 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
         outline: 'none',
         border: 'none',
     },
-    cartItemCard: {
-        display: 'flex',
-        flexDirection: 'row'  as any,
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        width: '100%',
-        marginBottom: '20px',
-    },
-    cartItemInfo: {
-        display: 'flex',
-        flexDirection: 'row'  as any,
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-        width: '70%',
-    },
-    cartItemImage: {
-        width: '65px',
-        height: '65px',
-        borderRadius: '5px',
-        marginRight: '10px',
-    },
-    cartItemTextContainer: {
-        display: 'flex',
-        flexDirection: 'column'  as any,
-        justifyContent: 'center',
-        alignItems: 'flex-start',
-    },
-    cartItemName: {
-        fontSize: '15px',
-        lineHeight: '25px',
-        color: colors.black,
-    },
-    cartItemPrice: {
-        fontSize: '14px',
-        lineHeight: '25px',
-        color: colors.borderGray,
-    },
-    cartItemQuantityInput: {
-        width: '23%',
-        height: '30px',
-        margin: '0px',
-    },
     cartFooter: {
         display: 'flex',
         flexDirection: 'row'  as any,
