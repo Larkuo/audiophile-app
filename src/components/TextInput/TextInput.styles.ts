@@ -31,5 +31,6 @@ export const styles = {
         letterSpacing: '-0.25px',
         boxSizing: 'border-box' as any,
         color: colors.black,
+        outline: 'none',
     },
 };
