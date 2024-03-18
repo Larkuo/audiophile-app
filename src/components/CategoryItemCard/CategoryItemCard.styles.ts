@@ -42,7 +42,6 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
                     : screenDimensions.width <= SCREEN_LIMITS.tablet
                     ? 'auto' : '100%',
         borderRadius: '5px',
-        backgroundColor: colors.hoverPrimary,
         marginBottom: screenDimensions.width <= SCREEN_LIMITS.mobile? '0%'
                     : screenDimensions.width <= SCREEN_LIMITS.tablet
                     ? '5%' : '0%',

@@ -65,5 +65,9 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         width: '20px',
         height: '20px',
         textAlign: 'center' as any,
+        display: 'flex',
+        flexDirection: 'column'  as any,
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 }};

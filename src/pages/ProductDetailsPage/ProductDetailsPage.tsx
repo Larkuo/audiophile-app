@@ -29,7 +29,10 @@ export function ProductDetailsPage() {
     },[]);
 
     return (
-        <div className='product-details-page' style={styles(screenDimensions).productPage}>
+        <div 
+            className='product-details-page' 
+            style={styles(screenDimensions).productPage}
+        >
             <div className='page-header' style={styles(screenDimensions).pageHeader}>
                 <AppHeader bottomBorder={false}/>
             </div>

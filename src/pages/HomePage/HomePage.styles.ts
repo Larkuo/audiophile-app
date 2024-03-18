@@ -4,5 +4,6 @@ export const styles = {
         display: 'flex',
         flexDirection: 'column'  as any,
         alignItems: 'center',
+        position: 'relative' as any,
     },
 }

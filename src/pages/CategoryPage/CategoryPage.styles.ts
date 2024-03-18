@@ -19,6 +19,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
         display: 'flex',
         flexDirection: 'column'  as any,
         alignItems: 'center',
+        position: 'relative' as any,
     },
     pageHeader: {
         width: '100%',

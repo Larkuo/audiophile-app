@@ -18,7 +18,10 @@ export function useCartDetails():{
     deleteCartItem: (itemSlug: string) => void;
     emptyCart: () => void;
 }{
-    const { cartItems, setCartItems } = useContext(CartContext);
+    const { 
+        cartItems, 
+        setCartItems, 
+    } = useContext(CartContext);
     const [cartTotal, setCartTotal] = useState(0);
     const [cartCount, setCartCount] = useState(0);
     const [refresh, setRefresh] = useState(false);
@@ -55,6 +58,7 @@ export function useCartDetails():{
         localStorage.setItem(LOCAL_STORAGE_CONSTS.cartCount, JSON.stringify(cartListCount));
         localStorage.setItem(LOCAL_STORAGE_CONSTS.cartTotal, JSON.stringify(cartListTotal));
 
+        setCartItems([]);
         toggleRefresh();
     }
 
@@ -95,7 +99,7 @@ export function useCartDetails():{
 
     useEffect(() => {
         getCartDetails();
-    },[refresh, cartCount, cartTotal]);
+    },[refresh]);
 
     return{
         cartCount,
