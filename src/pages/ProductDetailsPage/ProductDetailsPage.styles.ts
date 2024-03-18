@@ -19,7 +19,8 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
         width: '100%',
         paddingLeft: '10%',
         paddingRight: '10%',
-        paddingTop: '5%',
+        paddingTop:  screenDimensions.width <= SCREEN_LIMITS.mobile? '5%' : '1.5%',
+        paddingBottom:  screenDimensions.width <= SCREEN_LIMITS.mobile? '2%' : '0.5%',
     },
     goBackText: {
         ...textStyles.body,

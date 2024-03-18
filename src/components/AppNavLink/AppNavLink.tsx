@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { colors } from '../../theme/Theme';
 import { useHover } from '../../hooks/useHover';
+import { useProductDetails } from '../../hooks/useProductDetails';
 
 interface AppNavLinkProps{
     path: string;
@@ -17,15 +18,20 @@ function AppNavLink({
     onClick,
     stylesOverride,
 }: AppNavLinkProps) {
-  const { pageCategory } = useParams();
-
-  // const IS_ACTIVE = path !== '/' && path.includes(pageCategory || '.');
+  const { pageCategory, productSlug } = useParams();
 
   const [isActive, setIsActive] = useState(false);
 
   useEffect(() => {
-    setIsActive(path !== '/' && path.includes(pageCategory || '.'));
-  },[pageCategory])
+    if(productSlug){
+      const productSlugSplit = productSlug.split('-');
+      const productCategory = productSlugSplit[productSlugSplit.length-1];
+      
+      setIsActive(path !== '/' && path.includes(productCategory));
+    }else{
+      setIsActive(path.includes(pageCategory || '.'));
+    }
+  },[pageCategory, productSlug])
 
   const {
       hover, 
