@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { colors } from '../../theme/Theme';
 import { useHover } from '../../hooks/useHover';
-import { useProductDetails } from '../../hooks/useProductDetails';
 
 interface AppNavLinkProps{
     path: string;

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { 
     AppButton, 
     QuantityInput 
@@ -6,8 +7,12 @@ import { CartItemInterface, useCartDetails } from "../../hooks/useCartDetails";
 import { useScreenDimensions } from "../../hooks/useScreenDimensions";
 import { CartItemAssets } from "./CardAssets";
 import { styles } from "./CartModal.styles";
+import { useAppNavigation } from "../../hooks/useAppNavigation";
 
 export function CartModal() {
+    const navigate = useNavigate();
+
+    const { gotoCheckout } = useAppNavigation(navigate);
     const { screenDimensions }  = useScreenDimensions();
     const { 
         cartCount, 
@@ -86,6 +91,7 @@ export function CartModal() {
                     label={'checkout'} 
                     mode={'primary'}
                     stylesOverride={styles(screenDimensions).checkoutButton}
+                    onClick={gotoCheckout}
                 />
             </div>
         </div>

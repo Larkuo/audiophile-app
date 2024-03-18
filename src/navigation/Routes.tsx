@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { 
     CategoryPage,
+    CheckoutPage,
     HomePage, 
     ProductDetailsPage, 
 } from "../pages";
@@ -31,5 +32,10 @@ export const APP_ROUTES: AppRoutesInterface[] = [
         key: 3,
         path: "/products/:productSlug",
         element: <ProductDetailsPage />
+    },
+    {
+        key: 4,
+        path: "/checkout",
+        element: <CheckoutPage />
     },
 ];

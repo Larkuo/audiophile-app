@@ -10,6 +10,7 @@ export const colors = {
     primary: '#D87D4A',
     hoverPrimary: '#FBAF85',
     transparent: 'transparent',
+    checkoutBackground: '#CFCFCF',
     filterPrimary: ' invert(53%) sepia(95%) saturate(322%) hue-rotate(336deg) brightness(87%) contrast(94%)',
 }
 
