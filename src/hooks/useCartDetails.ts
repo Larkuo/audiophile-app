@@ -10,9 +10,12 @@ export interface CartItemInterface{
 }
 
 export function useCartDetails():{
+    cartItems: CartItemInterface[];
     cartCount: number;
     cartTotal: number;
-    cartItems: CartItemInterface[];
+    cartShipping: number;
+    cartTax: number;
+    cartGrandTotal: number;
     addCartItem: (neeCartItem: CartItemInterface) => void;
     updateCartItem: (itemSlug: string, newCartQuantity: number) => void;
     deleteCartItem: (itemSlug: string) => void;
@@ -24,6 +27,11 @@ export function useCartDetails():{
     } = useContext(CartContext);
     const [cartTotal, setCartTotal] = useState(0);
     const [cartCount, setCartCount] = useState(0);
+
+    const [cartShipping, setCartShipping] = useState(0);
+    const [cartTax, setCartTax] = useState(0);
+    const [cartGrandTotal, setCartGrandTotal] = useState(0);
+
     const [refresh, setRefresh] = useState(false);
 
     function toggleRefresh(){
@@ -34,15 +42,24 @@ export function useCartDetails():{
         const cartList: CartItemInterface[] = JSON.parse(localStorage.getItem(LOCAL_STORAGE_CONSTS.cartList) || '[]');
         const cartListCount = Number(localStorage.getItem(LOCAL_STORAGE_CONSTS.cartCount));
         const cartListTotal = Number(localStorage.getItem(LOCAL_STORAGE_CONSTS.cartTotal));
+        const cartListTax = 0.1992 * cartListTotal;
+        const cartListShipping = 50;
+        const cartListGrandTotal = cartListTotal + cartListShipping;
 
         if(cartList.length > 0){
             setCartItems(cartList);
             setCartCount(cartListCount);
             setCartTotal(cartListTotal);
+            setCartShipping(cartListShipping);
+            setCartTax(cartListTax);
+            setCartGrandTotal(cartListGrandTotal);
         }else{
             setCartItems([]);
             setCartCount(0);
             setCartTotal(0);
+            setCartShipping(0);
+            setCartTax(0);
+            setCartGrandTotal(0);
         }
     }
 
@@ -106,9 +123,12 @@ export function useCartDetails():{
     },[refresh]);
 
     return{
+        cartItems,
         cartCount,
         cartTotal,
-        cartItems,
+        cartShipping,
+        cartTax,
+        cartGrandTotal,
         addCartItem,
         updateCartItem,
         deleteCartItem,

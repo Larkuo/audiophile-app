@@ -14,6 +14,8 @@ import {
 } from '../../components';
 import { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
+import { useHover } from '../../hooks/useHover';
+import { colors } from '../../theme/Theme';
 
 export function ProductDetailsPage() {
     const navigate = useNavigate();    
@@ -21,6 +23,7 @@ export function ProductDetailsPage() {
     const { screenDimensions } = useScreenDimensions();
     const { goBack } = useAppNavigation(navigate);
     const { showCartModal } = useContext(CartContext);
+    const { hover, setHoverTrue, setHoverFalse } = useHover();
 
     const [cartQuantity, setCartQuantity] = useState(1);
 
@@ -39,8 +42,13 @@ export function ProductDetailsPage() {
             <div className='goback-row' style={styles(screenDimensions).goBackRow}>
                 <span 
                     className='goback-button'
-                    style={styles(screenDimensions).goBackText}
+                    style={{
+                        ...styles(screenDimensions).goBackText,
+                        color: hover? colors.primary : colors.borderGray,
+                    }}
                     onClick={goBack}
+                    onMouseEnter={setHoverTrue}
+                    onMouseLeave={setHoverFalse}
                 >Go Back</span>
             </div>           
             <ProductDetailsInfoCard

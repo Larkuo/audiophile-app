@@ -8,7 +8,7 @@ export function useAppNavigation(navigate: NavigateFunction):{
     gotoProductDetails: (slug: string) => void;
     gotoCheckout: () => void;
 }{
-    const {cartItems} = useContext(CartContext);
+    const {cartItems, toggleCartModal} = useContext(CartContext);
 
     function goBack(){
         navigate(-1);
@@ -25,6 +25,7 @@ export function useAppNavigation(navigate: NavigateFunction):{
     }
 
     function gotoCheckout(){
+        toggleCartModal();
         cartItems.length > 0 && navigate('/checkout');
     }
 
