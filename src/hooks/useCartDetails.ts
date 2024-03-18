@@ -67,13 +67,17 @@ export function useCartDetails():{
     }
 
     function updateCartItem(itemSlug: string, newCartQuantity: number){
-        const updatedCartList: CartItemInterface[] = cartItems.map((currentCartItem) => 
-            currentCartItem.slug === itemSlug 
-                ? {...currentCartItem, quantity: newCartQuantity}
-                : currentCartItem
-        );
+        if(newCartQuantity > 0){
+            const updatedCartList: CartItemInterface[] = cartItems.map((currentCartItem) => 
+                currentCartItem.slug === itemSlug 
+                    ? {...currentCartItem, quantity: newCartQuantity}
+                    : currentCartItem
+            );
 
-        updateCart(updatedCartList);
+            updateCart(updatedCartList);
+        }else{
+            deleteCartItem(itemSlug);
+        }
     }
 
     function addCartItem(newCartItem: CartItemInterface){

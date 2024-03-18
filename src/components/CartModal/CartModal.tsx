@@ -46,8 +46,9 @@ export function CartModal() {
                 <QuantityInput 
                     value={cartItem.quantity} 
                     onChangeQuantity={(value: number) => 
-                        updateCartItem(cartItem.slug, value
-                    )} 
+                        updateCartItem(cartItem.slug, value)
+                    } 
+                    minQuantity={0}
                     stylesOverride={styles(screenDimensions).cartItemQuantityInput}
                 />
             </div>

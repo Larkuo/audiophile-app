@@ -3,13 +3,15 @@ import { styles } from './QuantityInput.styles';
 interface QuantityInputProps{
     value: number;
     onChangeQuantity: (value: number) => void;
-    stylesOverride?: object,
+    minQuantity?: number;
+    stylesOverride?: object;
 }
 
 export function QuantityInput({
     value,
-    stylesOverride,
     onChangeQuantity,
+    minQuantity = 1,
+    stylesOverride,
 }: QuantityInputProps) {
 
     function increase(){
@@ -17,7 +19,7 @@ export function QuantityInput({
     }
 
     function decrease(){
-        if(value > 1){
+        if(value > minQuantity){
             onChangeQuantity(value - 1);
         }
     }
@@ -36,7 +38,7 @@ export function QuantityInput({
             >-</div>
             <input
                 type='number'
-                min='1'
+                min={String(minQuantity)}
                 value={value}
                 onChange={(event) => {
                     onChangeQuantity && onChangeQuantity(Number(event.target.value));
