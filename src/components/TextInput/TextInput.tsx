@@ -27,6 +27,7 @@ export function TextInput({
         isError: false,
         message: '',
     });
+    const [isFocus, setIsFocus] = useState(false);
     
     const { 
         hover, 
@@ -58,6 +59,9 @@ export function TextInput({
         console.log(`Current ${label.toLowerCase()} error: `, currentError);
     }
 
+    const borderColor = error.isError ? colors.error 
+            : hover? colors.primary : colors.checkoutBackground;
+
     return (
         <div className="text-input-container" style={{
             ...styles.textInputContainer,
@@ -76,8 +80,8 @@ export function TextInput({
                 className="text-input"
                 style={{
                     ...styles.textInput,
-                    border: `2px solid ${error.isError ? colors.error 
-                        : hover? colors.primary : colors.checkoutBackground}`
+                    border: isFocus? 'none' : `2px solid ${borderColor}`,
+                    outline: isFocus ? `2px solid ${colors.primary}` : 'none',
                 }}
                 placeholder={placeholder}
                 value={inputValue}
@@ -89,8 +93,8 @@ export function TextInput({
                 }}
                 onMouseEnter={setHoverTrue}
                 onMouseLeave={setHoverFalse}
-                onFocus={setHoverTrue}
-                onBlur={setHoverFalse}
+                onFocus={() => setIsFocus(true)}
+                onBlur={() => setIsFocus(false)}
             />
         </div>
     );
