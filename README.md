@@ -6,16 +6,6 @@ View the design here(P.S. not my design):
 
 - [Figma Design (Dev Mode)](https://www.figma.com/file/TTXqJZcHWHF80nbP8IiSIT/audiophile-ecommerce-website?type=design&node-id=0%3A1&mode=dev&t=Q0jnOcYQq7TzO3Lc-1)
 
-
-# Enyata Frontend Assesment Submission
-
-This app is a submission for the Enyata Frontend Engineer technical assesment.
-
-Find the instruction details below:
-
-- [Requirements](https://www.figma.com/file/EwSQiqGGaUVezxW4jygiwD/Pokebook-App?node-id=91-2&t=5O4h1ks9Rgv1MjmX-0) 
-- [Design](https://www.figma.com/file/EwSQiqGGaUVezxW4jygiwD/Pokebook-App?node-id=0-1&t=DFrcRJlvL18zJ8mX-0)
-
 ## Running the app
 
 To run the app first clone the repository and then follow the steps below:
@@ -25,6 +15,16 @@ To run the app first clone the repository and then follow the steps below:
 - `npm run dev`
 
 If successfully run, the app should be accessible locally via [http://localhost:5173](http://localhost:5173)
+
+## Navigating the app
+
+`/` - home page
+
+`/categories/:category` - category page where you can see all products in a particular category
+
+`/products/:productSlug` - product details page where you can see product details & add products to your cart
+
+`/checkout` - checkout page where you can confirm & pay for items in your cart
 
 
 ## Viewing the deployed app
