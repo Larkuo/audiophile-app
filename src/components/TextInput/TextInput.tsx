@@ -39,7 +39,7 @@ export function TextInput({
     function checkError(value: string){
         let currentError: InputErrorInterface = {} as InputErrorInterface;
 
-        if(label.toLowerCase() === 'email'){
+        if(value && label.toLowerCase() === 'email'){
             const emailRegexp = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]');
             const isValid = emailRegexp.test(value);
             currentError = {

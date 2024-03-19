@@ -1,4 +1,4 @@
-import { TextInput } from "..";
+import { RadioButtonGroup, TextInput } from "..";
 import { useScreenDimensions } from "../../hooks/useScreenDimensions";
 import { styles } from "./CheckoutFormSection.styles";
 
@@ -17,7 +17,7 @@ export interface CheckoutFormSectionProps{
     inputRows: FormInputProps[][];
 }
 export function CheckoutFormSection({
-    // name,
+    name,
     title,
     inputRows,
 }:CheckoutFormSectionProps) {
@@ -32,7 +32,7 @@ export function CheckoutFormSection({
                 className="section-input-container"
                 style={styles(screenDimensions).sectionInputContainer}
             >
-                {inputRows.map((inputRow, index) => 
+                {inputRows.map((inputRow, index) => (name === 'billing' || name === 'shipping') ? (
                     <div 
                         className="section-input-row" 
                         style={styles(screenDimensions).sectionInputRow}
@@ -49,6 +49,16 @@ export function CheckoutFormSection({
                                 />
                         )}
                     </div>
+                ) : (
+                    <RadioButtonGroup
+                        key={index}
+                        width={inputRow[0].width}
+                        inititalValue={'e-money'}
+                        groupLabel={inputRow[0].label}
+                        radioOptions={inputRow[0].radioOptions}
+                        onChangeValue={inputRow[0].onChangeInput}
+                    />
+                )
                 )}
             </div>
         </div>
