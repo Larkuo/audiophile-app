@@ -9,6 +9,9 @@ interface TextInputProps{
     width: number;
     placeholder?: string;
     onChangeInput?: (value: string) => void;
+    minLength?: number;
+    maxLength?: number;
+    keyBoardType?: string;
 }
 
 interface InputErrorInterface{
@@ -21,6 +24,9 @@ export function TextInput({
     width,
     placeholder,
     onChangeInput,
+    minLength,
+    maxLength,
+    keyBoardType = 'text',
 }:TextInputProps) {
     const [inputValue, setInputValue] = useState('');
     const [error, setError] = useState<InputErrorInterface>({
@@ -78,23 +84,29 @@ export function TextInput({
             </div>
             <input
                 className="text-input"
+                type={keyBoardType}
+                minLength={minLength}
+                maxLength={maxLength}
+                placeholder={placeholder}
+                value={inputValue}
+                onMouseEnter={setHoverTrue}
+                onMouseLeave={setHoverFalse}
+                onFocus={() => setIsFocus(true)}
+                onBlur={() => setIsFocus(false)}
                 style={{
                     ...styles.textInput,
                     border: isFocus? 'none' : `2px solid ${borderColor}`,
                     outline: isFocus ? `2px solid ${colors.primary}` : 'none',
                 }}
-                placeholder={placeholder}
-                value={inputValue}
                 onChange={(event) => {
                     const textValue = event.target.value;
-                    setInputValue(textValue);
-                    onChangeInput && onChangeInput(textValue);
-                    checkError(textValue);
+                    const saveValue = keyBoardType && keyBoardType === 'number'? /^\d+$/.test(textValue) : true;
+                    if(saveValue || textValue === ''){
+                        setInputValue(textValue);
+                        onChangeInput && onChangeInput(textValue);
+                        checkError(textValue);
+                    }
                 }}
-                onMouseEnter={setHoverTrue}
-                onMouseLeave={setHoverFalse}
-                onFocus={() => setIsFocus(true)}
-                onBlur={() => setIsFocus(false)}
             />
         </div>
     );

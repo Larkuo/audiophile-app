@@ -14,6 +14,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
         fontSize: '12px',
         letterSpacing: '-0.21px',
         fontWeight: 'bold',
+        marginBottom: '20px'
     },
     radioButtonGroup: {
         display: 'flex',

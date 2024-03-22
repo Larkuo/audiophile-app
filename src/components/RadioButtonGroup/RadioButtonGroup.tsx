@@ -1,12 +1,12 @@
-import { useState } from "react";
 import { useScreenDimensions } from "../../hooks/useScreenDimensions";
 import { styles } from "./RadioButtonGroup.styles";
 import { RadioButton } from "..";
+import { SCREEN_LIMITS } from "../../theme/Theme";
 
 interface RadioButtonGroupProps{
     width?: number;
     groupLabel: string;
-    inititalValue?: string;
+    selectedButton: string;
     radioOptions?: {label: string, value: string}[];
     onChangeValue?: (value: string) => void;
 }
@@ -14,11 +14,10 @@ interface RadioButtonGroupProps{
 export function RadioButtonGroup({
     width = 45,
     groupLabel,
-    inititalValue = '',
+    selectedButton,
     radioOptions,
     onChangeValue,
 }:RadioButtonGroupProps){
-    const [selected, setSelected] = useState(inititalValue);
     const { screenDimensions } = useScreenDimensions();
 
     return (
@@ -29,19 +28,16 @@ export function RadioButtonGroup({
                 <div className="radio-button-group" 
                     style={{
                         ...styles(screenDimensions).radioButtonGroup,
-                        width: `${width}%`
+                        width: `${screenDimensions.width <= SCREEN_LIMITS.mobile? 100 : width}%`
                     }}
                 >
                     {radioOptions.map((radioOption) => 
                         <RadioButton
                             key={radioOption.value}
-                            checked={selected === radioOption.value}
+                            checked={selectedButton === radioOption.value}
                             label={radioOption.label}
                             value={radioOption.value}
-                            onChangeValue={(value: string) => {
-                                onChangeValue && onChangeValue(value);
-                                setSelected(value);
-                            }}
+                            onChangeValue={(value: string) => onChangeValue && onChangeValue(value)}
                         />
                     )}
                 </div>

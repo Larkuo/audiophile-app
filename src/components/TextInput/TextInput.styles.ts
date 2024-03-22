@@ -24,7 +24,8 @@ export const styles = {
     errorText: {},
     textInput: {
         width: '100%',
-        paddingLeft: '2%',
+        paddingLeft: '10px',
+        paddingRight: '10px',
         borderRadius: '5px',
         height: '56px',
         fontSize: '14px',
