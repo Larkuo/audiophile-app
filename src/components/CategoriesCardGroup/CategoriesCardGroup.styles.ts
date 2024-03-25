@@ -32,11 +32,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
     categoryImage: {
         width: '50%',
         height: 'auto',
-        marginBottom: screenDimensions.width <= SCREEN_LIMITS.mobile
-                        ? '-25%'
-                        : screenDimensions.width <= SCREEN_LIMITS.tablet
-                        ? '-25%' 
-                        : '-25%',
+        marginBottom: '-25%',
     },
     categoryUnderCard: {
         display: 'flex', 

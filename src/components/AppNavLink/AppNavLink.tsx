@@ -30,7 +30,7 @@ function AppNavLink({
     }else{
       setIsActive(path.includes(pageCategory || '.'));
     }
-  },[pageCategory, productSlug])
+  },[pageCategory, productSlug]);
 
   const {
       hover, 

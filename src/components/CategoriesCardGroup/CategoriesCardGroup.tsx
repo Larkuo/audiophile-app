@@ -5,18 +5,46 @@ import { useNavigate } from 'react-router-dom';
 import { useScreenDimensions } from '../../hooks/useScreenDimensions';
 import { useAppNavigation } from '../../hooks/useAppNavigation';
 
-export function CategoriesCardGroup() {
+
+interface CategoriesCardGroupProps{
+    isNav?: boolean;
+    closeNav?: () => void;
+    groupStylesOverride?: object;
+    cardStylesOverride?: object;
+}
+
+export function CategoriesCardGroup({
+    isNav = false,
+    closeNav,
+    groupStylesOverride,
+    cardStylesOverride,
+}:CategoriesCardGroupProps) {
     const navigate = useNavigate();
     const {screenDimensions} = useScreenDimensions();
     const { gotoCategory } = useAppNavigation(navigate);
+
+    function onClickShop(category: string){
+        isNav && closeNav && closeNav();
+        gotoCategory(category);
+    }
+
+    const groupStyles = {
+        ...styles(screenDimensions).categoriesCardGroup,
+        ...groupStylesOverride,
+    }
+
+    const cardStyles = {
+        ...styles(screenDimensions).categoryCard,
+        ...cardStylesOverride,
+    }
     
     return (
-        <div className='categories-card-group' style={styles(screenDimensions).categoriesCardGroup}>
+        <div className='categories-card-group' style={groupStyles}>
             {CATEGORIES_CARD_DATA.map((card: CategoriesCardProps) => 
                 <div 
                     key={card.key} 
                     className='category-card' 
-                    style={styles(screenDimensions).categoryCard}
+                    style={cardStyles}
                 >
                     <img 
                         src={card.image} 
@@ -32,7 +60,7 @@ export function CategoriesCardGroup() {
                         <AppButton 
                             label='shop' 
                             mode='arrow' 
-                            onClick={() => gotoCategory(card.label)}
+                            onClick={() => onClickShop(card.label)}
                         />
                     </div>
                 </div>
