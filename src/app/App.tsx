@@ -3,6 +3,7 @@ import AppNavigation from '../navigation/AppNavigation';
 import { CartContextProvider } from '../context/CartContext';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
+import { SideNavContextProvider } from '../context/SideNavContext';
 
 function App() {
   const { pathname } = useLocation();
@@ -12,9 +13,11 @@ function App() {
   }, [pathname]);
 
     return (
-      <CartContextProvider>
-        <AppNavigation />
-      </CartContextProvider>
+      <SideNavContextProvider>
+        <CartContextProvider>
+          <AppNavigation />
+        </CartContextProvider>
+      </SideNavContextProvider>
     );
 }
 

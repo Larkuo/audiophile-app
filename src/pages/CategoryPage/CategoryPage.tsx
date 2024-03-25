@@ -3,7 +3,6 @@ import {
     AppFooter, 
     AppHeader, 
     AudioGearSection, 
-    CartModal, 
     CategoriesCardGroup, 
     CategoryItemCard 
 } from '../../components';
@@ -12,6 +11,7 @@ import { useParams } from 'react-router-dom';
 import { CategoryItemProps, useCategoryDetails } from '../../hooks/useCategoryDetails';
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
+import { SideNavContext } from '../../context/SideNavContext';
 
 
 export function CategoryPage() {
@@ -19,6 +19,7 @@ export function CategoryPage() {
 
     const {screenDimensions} = useScreenDimensions();
     const { showCartModal } = useContext(CartContext);
+    const { showSideNav } = useContext(SideNavContext);
 
     const {
         categoryItems
@@ -29,7 +30,8 @@ export function CategoryPage() {
             className='category-page' 
             style={{
                 ...styles(screenDimensions).categoryPage,
-                overflowY: showCartModal? 'hidden' : 'scroll',
+                overflowY: showSideNav || showCartModal? 'hidden' : 'scroll',
+                height: showSideNav || showCartModal? '100vh' : 'auto',
             }}
         >
             <div className='category-page-header' style={styles(screenDimensions).pageHeader}>
@@ -51,7 +53,6 @@ export function CategoryPage() {
             <CategoriesCardGroup />
             <AudioGearSection />
             <AppFooter />
-            {showCartModal && <CartModal />}
         </div>
     );
 }

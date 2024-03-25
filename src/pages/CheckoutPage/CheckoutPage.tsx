@@ -5,6 +5,7 @@ import {
     AppHeader, 
     CartItem, 
     CheckoutFormSection,
+    CheckoutModal,
 } from "../../components";
 import { useScreenDimensions } from "../../hooks/useScreenDimensions";
 import { styles } from "./CheckoutPage.styles";
@@ -13,6 +14,8 @@ import { useHover } from "../../hooks/useHover";
 import { colors } from "../../theme/Theme";
 import {  useCartDetails } from "../../hooks/useCartDetails";
 import { FORM_SECTIONS_DATA } from "./FormSectionsData";
+import { useContext, useState } from "react";
+import { SideNavContext } from "../../context/SideNavContext";
 
 export function CheckoutPage() {
     const navigate = useNavigate();    
@@ -20,6 +23,8 @@ export function CheckoutPage() {
     const { screenDimensions } = useScreenDimensions();
     const { goBack } = useAppNavigation(navigate);
     const { hover, setHoverTrue, setHoverFalse } = useHover();
+    const { showSideNav } = useContext(SideNavContext);
+    
     const { 
         cartItems,
         cartCount, 
@@ -27,10 +32,20 @@ export function CheckoutPage() {
         cartShipping,
         cartTax,
         cartGrandTotal,
+        // emptyCart,
     } = useCartDetails();
 
+    const [showCheckoutModal, setShowCheckoutModal] = useState(false);
+
     return (
-        <div className="checkout-page" style={styles(screenDimensions).checkoutPage}>
+        <div 
+            className="checkout-page" 
+            style={{
+                ...styles(screenDimensions).checkoutPage,
+                overflowY: showSideNav || showCheckoutModal? 'hidden' : 'scroll',
+                height: showSideNav || showCheckoutModal? '100vh' : 'auto',
+            }}
+        >
             <div className='page-header' style={styles(screenDimensions).pageHeader}>
                 <AppHeader bottomBorder={false}/>
             </div>
@@ -100,11 +115,17 @@ export function CheckoutPage() {
                         label={'continue & pay'} 
                         mode={'primary'}
                         stylesOverride={styles(screenDimensions).payButton}
-                        onClick={() => {}}
+                        onClick={() => {
+                            setShowCheckoutModal(true);
+                            window.scrollTo(0,0);
+                        }}
                     />
                 </div>
             </div>
             <AppFooter />
+            {showCheckoutModal && 
+                <CheckoutModal closeModal={() => setShowCheckoutModal(false)} />
+            }
         </div>
     );
 }

@@ -4,7 +4,7 @@ import { SCREEN_LIMITS, colors } from "../../theme/Theme";
 export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
     sideNav: {
         width: '100vw',
-        height: screenDimensions.width <= SCREEN_LIMITS.mobile? '150vh' : '100vh',
+        height: '100vh',
         display: 'flex',
         flexDirection: 'column'  as any,
         left: '0',

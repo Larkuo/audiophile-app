@@ -83,6 +83,17 @@ export function useCartDetails():{
         updateCart([]);
     }
 
+    function formatCartItemName(itemName: string){
+        const newName = itemName.toLowerCase()
+                            .replace('mark', 'mk')
+                            .replace('earphones', '')
+                            .replace('headphones', '')
+                            .replace('speaker', '')
+                            .replace('wireless', '');
+
+        return newName.toUpperCase();
+    }
+
     function updateCartItem(itemSlug: string, newCartQuantity: number){
         if(newCartQuantity > 0){
             const updatedCartList: CartItemInterface[] = cartItems.map((currentCartItem) => 
@@ -105,7 +116,10 @@ export function useCartDetails():{
                 newCartItem.quantity + cartItem.quantity
             );
         }else{
-            const cartList: CartItemInterface[] = [...cartItems, newCartItem];
+            const cartList: CartItemInterface[] = [
+                ...cartItems, 
+                {...newCartItem, name: formatCartItemName(newCartItem.name)}
+            ];
             updateCart(cartList);
         }
     }

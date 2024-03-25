@@ -55,7 +55,7 @@ export const styles = (screenDimensions: ScreenDimensionsProps) => {return {
         backgroundColor: colors.primary,
         borderRadius: '20px',
         position: 'absolute'  as any,
-        zIndex: 5,
+        zIndex: 4,
         fontSize: '12px',
         fontWeight: '900',
         padding: '2px',

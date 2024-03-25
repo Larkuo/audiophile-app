@@ -2,7 +2,6 @@ import { styles } from './HomePage.styles';
 import { 
   AppFooter,
   AudioGearSection,
-  CartModal,
   CategoriesCardGroup, 
   HomePageHero,
   YX1HomeSection,
@@ -11,17 +10,20 @@ import {
 } from '../../components';
 import { useContext } from 'react';
 import { CartContext } from '../../context/CartContext';
+import { SideNavContext } from '../../context/SideNavContext';
 
 
 export function HomePage() {
   const { showCartModal } = useContext(CartContext);
+  const { showSideNav } = useContext(SideNavContext);
 
   return (
     <div 
       className='home-page' 
       style={{
         ...styles.homePage, 
-        overflowY: showCartModal? 'hidden' : 'scroll'
+        overflowY: showSideNav || showCartModal? 'hidden' : 'scroll',
+        height: showSideNav || showCartModal? '100vh' : 'auto',
       }}
     >
       <HomePageHero />
@@ -31,7 +33,6 @@ export function HomePage() {
       <YX1HomeSection />
       <AudioGearSection />
       <AppFooter />
-      {showCartModal && <CartModal />}
     </div>
   )
 }

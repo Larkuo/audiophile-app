@@ -21,3 +21,5 @@ export * from './CheckoutFormSection/CheckoutFormSection';
 export * from './TextInput/TextInput';
 export * from './RadioButton/RadioButton';
 export * from './RadioButtonGroup/RadioButtonGroup';
+export * from './CheckoutModal/CheckoutModal';
+export * from './CheckoutInvoiceItem/CheckoutInvoiceItem';

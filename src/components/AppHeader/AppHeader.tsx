@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import { styles } from './AppHeader.styles';
@@ -13,6 +13,8 @@ import SideNav from '../SideNav/SideNav';
 import { useScreenDimensions } from '../../hooks/useScreenDimensions';
 import { APPNAV_DATA, AppNavDataProps } from '../../navigation/AppNavbarData';
 import { CartContext } from '../../context/CartContext';
+import { SideNavContext } from '../../context/SideNavContext';
+import { CartModal } from '..';
 
 
 export function AppHeader({
@@ -23,7 +25,9 @@ export function AppHeader({
   const {screenDimensions} = useScreenDimensions();
 
   const showBurger = screenDimensions.width <= SCREEN_LIMITS.tablet;
-  const [showSideNav, setShowSideNav] = useState(false);
+
+  const { cartItems, toggleCartModal, showCartModal } = useContext(CartContext);
+  const { showSideNav, toggleSideNav} = useContext(SideNavContext);
 
   const headerStyle = {
     ...styles(screenDimensions).appHeader,
@@ -31,8 +35,6 @@ export function AppHeader({
   }
 
   function CartIcon(){
-    const { cartItems, toggleCartModal, showCartModal } = useContext(CartContext);
-
     return(
       <button 
         className="logo-link" style={styles(screenDimensions).logoLink}
@@ -51,36 +53,40 @@ export function AppHeader({
   return showBurger
   ?(
     <>
-    {showSideNav && <SideNav closeSidenav={() => setShowSideNav(false)}/>}
-    <div style={headerStyle} className='app-header'>
-      <div style={styles(screenDimensions).menuLogoGroup}>
-        <img src={BurgerIcon} style={styles(screenDimensions).menuIcon} onClick={() => setShowSideNav(true)}/>
+      {showCartModal && <CartModal />}
+      {showSideNav && <SideNav closeSidenav={toggleSideNav}/>}
+      <div style={headerStyle} className='app-header'>
+        <div style={styles(screenDimensions).menuLogoGroup}>
+          <img src={BurgerIcon} style={styles(screenDimensions).menuIcon} onClick={toggleSideNav}/>
 
-        <Link to={'/'} className="logo-link" style={styles(screenDimensions).logoLink}>
-          <img src={AppLogo} alt={'audiophile logo'} style={styles(screenDimensions).appLogo}/>
-        </Link>
+          <Link to={'/'} className="logo-link" style={styles(screenDimensions).logoLink}>
+            <img src={AppLogo} alt={'audiophile logo'} style={styles(screenDimensions).appLogo}/>
+          </Link>
+        </div>
+
+        <CartIcon />
       </div>
-
-      <CartIcon />
-    </div>
     </>
   ):(
-    <div style={headerStyle} className='app-header'>
-      <Link to={'/'} className="logo-link" style={styles(screenDimensions).logoLink}>
-        <img src={AppLogo} style={styles(screenDimensions).appLogo}/>
-      </Link>
+    <>
+      {showCartModal && <CartModal />}
+      <div style={headerStyle} className='app-header'>
+        <Link to={'/'} className="logo-link" style={styles(screenDimensions).logoLink}>
+          <img src={AppLogo} style={styles(screenDimensions).appLogo}/>
+        </Link>
 
-      <div style={styles(screenDimensions).navBar} className='nav-bar'>
-        {APPNAV_DATA.map((nav: AppNavDataProps, index: number) => 
-          <AppNavLink 
-            key={index}
-            path={nav.path} 
-            name={nav.name} 
-          />
-        )}
+        <div style={styles(screenDimensions).navBar} className='nav-bar'>
+          {APPNAV_DATA.map((nav: AppNavDataProps, index: number) => 
+            <AppNavLink 
+              key={index}
+              path={nav.path} 
+              name={nav.name} 
+            />
+          )}
+        </div>
+
+        <CartIcon />
       </div>
-
-      <CartIcon />
-    </div>
+    </>
   );
 }

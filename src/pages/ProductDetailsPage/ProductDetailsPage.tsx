@@ -16,14 +16,17 @@ import { useContext, useEffect, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
 import { useHover } from '../../hooks/useHover';
 import { colors } from '../../theme/Theme';
+import { SideNavContext } from '../../context/SideNavContext';
 
 export function ProductDetailsPage() {
     const navigate = useNavigate();    
 
     const { screenDimensions } = useScreenDimensions();
     const { goBack } = useAppNavigation(navigate);
-    const { showCartModal } = useContext(CartContext);
     const { hover, setHoverTrue, setHoverFalse } = useHover();
+
+    const { showCartModal } = useContext(CartContext);
+    const { showSideNav } = useContext(SideNavContext);
 
     const [cartQuantity, setCartQuantity] = useState(1);
 
@@ -34,7 +37,11 @@ export function ProductDetailsPage() {
     return (
         <div 
             className='product-details-page' 
-            style={styles(screenDimensions).productPage}
+            style={{
+                ...styles(screenDimensions).productPage,
+                overflowY: showSideNav || showCartModal? 'hidden' : 'scroll',
+                height: showSideNav || showCartModal? '100vh' : 'auto',
+            }}
         >
             <div className='page-header' style={styles(screenDimensions).pageHeader}>
                 <AppHeader bottomBorder={false}/>

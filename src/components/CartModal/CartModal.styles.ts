@@ -7,12 +7,12 @@ import {
 
 export const styles = (screenDimensions: ScreenDimensionsProps) => {return{
     cartModal: {
-        width: '100%',
-        height: '90vh',
+        width: '100vw',
+        height: '95vh',
         backgroundColor: colors.transparentBlack,
         position: 'absolute' as any,
         zIndex: '5',
-        top: '10vh',
+        top: '9vh',
         left: '0px',
         display: 'flex',
         flexDirection: 'column' as any,

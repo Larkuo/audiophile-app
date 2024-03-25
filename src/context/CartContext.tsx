@@ -1,5 +1,6 @@
 import React, {createContext, useState} from "react";
 import { CartItemInterface } from "../hooks/useCartDetails";
+import { useLocation } from "react-router-dom";
 
 interface CartContextInterface{
     cartItems: CartItemInterface[];
@@ -11,11 +12,12 @@ interface CartContextInterface{
 export const CartContext = createContext<CartContextInterface>({} as CartContextInterface);
 
 export function CartContextProvider({children}:{children: React.ReactNode}){
+    const { pathname } = useLocation();
     const [cartItems, setCartItems] = useState<CartItemInterface[]>([]);
     const [showCartModal, setShowCartModal] = useState(false);
 
     function toggleCartModal(){
-        setShowCartModal(!showCartModal);
+        pathname !== '/checkout' && setShowCartModal(!showCartModal);
     }
 
     return(
